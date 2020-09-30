@@ -1,0 +1,79 @@
+\documentclass[a4paper,12pt]{article}
+    
+    \usepackage[top=1.5cm, bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+    
+    \usepackage{t1enc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{arrows.meta}
+
+    \usepackage{multicol}
+\begin{document}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2020. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large 4. gyakorlat}
+    \begin{enumerate}
+        \item Keressünk minimális feszítőfát! Hány különböző minimális költségű feszítő fa van az alábbi gráfokban?
+        \begin{figure}[!h]
+            \centering
+            \includestandalone[scale = 0.7]{../grafok/minfesz1} \hspace{1in}
+            \includestandalone[scale = 0.7]{../grafok/minfesz2}
+        \end{figure}
+
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includestandalone[width=\textwidth]{../grafok/undirected_weighted_1}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.6\textwidth}
+            \item Keressünk a bal oldali gráfban minimális költségű feszítőfát. Mekkora a minimális költség? Hány különböző minimális költségű feszítőfája van a gráfnak? Keressünk maximális költségű feszítőfát. Melyek azok az élek, amelyek szerepelnek mind a minimális, mind a maximális költségű feszítőfában?
+        \end{minipage}
+
+        \begin{minipage}{0.6\textwidth}
+            \item \textbf{[ZH-2019]} Legyen $G$ az ábrán látható gráf, és jelentsék az egyes éleire írt számok az adott él költségét. Határozzuk meg $G$ egy olyan $F$ feszítőfájának összköltségét, ami tartalmazza a $bf$ élt, és az ilyen feszítőfák körében $F$ éleinek összköltsége a lehető legkisebb.
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includestandalone[width=\textwidth]{../grafok/kruskal_2019zh}
+        \end{minipage}
+        \hrule
+        
+        \item \textbf{[ZH-2016]} A $G$ gráfnak $n+3$ csúcsa van: ebből $3$ piros $(a, b, c)$ és $n$ zöld $(v_1, v_2, \ldots, v_n)$. Két csúcs pontosan akkor szomszédos $G$-ben, ha a színük különbözik. Hány $6$ pontú kör van a $G$ gráfban?
+        
+        \item \textbf{[ZH-2012]} Tegyük fel, hogy a háromszöget nem tartalmazó, irányítatlan, $100$ csúcsú $G$ egyszerű gráf $4$-reguláris, azaz minden fokszáma $4$. Hány $3$-élű útja van $G$-nek?
+        
+        \item \textbf{[ZH-2015]} A lenti, bal oldali ábrán látható $G = (V, E)$ gráf élei a felújítandó útszakaszokat jelentik. Minden élén két költség van: az olcsóbbik az egyszerű felújítás költsége, a drágább pedig ugyanez, kerékpárút építéssel. A cél az összes útszakasz felújítása úgy, hogy összefüggő kerékpárúthálózat épüljön ki, amelyen $G$ minden pontja elérhető. Határozzuk meg egy lehető legolcsóbb felújítási tervet, ami teljesíti ezt a feltételt.
+        
+        \begin{figure}[h]
+            \centering
+            \begin{subfigure}{0.45\textwidth}
+                \centering
+                \includestandalone{../grafok/minfesz_2015zh} \hspace{1in}
+            \end{subfigure}
+            \begin{subfigure}{0.45\textwidth}
+                \centering
+                \includestandalone{../grafok/csillagkapu}
+            \end{subfigure}
+        \end{figure}
+        
+        \item A fenti, jobb oldali gráf egy galaxis bolygóinak az úthálózatának egy tervét ábrázolja. Két bolygó akkor van összekötve egy éllel, ha azok közt hiperűr sztrádát tudunk felépíteni, az élek súlya az egyes sztrádák költsége. Mely sztrádákat építsük meg, ha a legkevesebbet szeretnénk költeni, és azt akarjuk, hogy az univerzum bármely bolygójából (közvetlenül vagy közvetve) el lehessen jutni bármely másik bolygóba? Mi a helyzet akkor, ha lehetőségünk van minden bolygón kiépíteni egy csillagkaput, melynek költsége $3$? Ha egy bolygó rendelkezik csillagkapuval, akkor onnan bármely másik szintén csillagkapuval rendelkező bolygóba el tudunk jutni közvetlenül.
+
+        \item \textbf{[PZH-2015]} Igazoljuk, hogy ha $v$ egy véges $G$ gráf páratlan fokú csúcsa, akkor $G$-ben van olyan út, amely $v$-t a $G$ egy másik páratlan fokú csúcsával köti össze.
+        
+        \item A $V=\{1,2, \ldots, 2n \}$ (számozott) pontokon hány olyan egyszerű $G$ gráf adható meg, melynek $2n-2$ éle van és két egyforma méretű összefüggő komponensből áll?
+
+        \item \textbf{[PZH-2015]} Tegyük fel, hogy a  $K_{2015}$ teljes gráf minden egyes élét kiszíneztük $1008$ lehetséges szín valamelyikére. Bizonyítsuk be, hogy található a gráfnak egy $u$ és $v$ pontja valamint egy $c$ szín úgy, hogy ne vezessen $u$-ból $v$-be olyan út, amelynek minden éle $c$ színű.
+
+        \item \textbf{[ZH-2018]} Legyen $G$ a lenti ábrán látható gráf, ahol az élekre írt számok az adott él megépítésének költségét jelentik. Találjuk meg $G$ egy minimális költségű feszítőfáját. Legfeljebb mennyire növelhető a $be$ él megépítési költsége úgy, hogy $G$-nek legyen egy legfeljebb $42$ összköltségű feszítőfája?
+        \begin{figure}[ht]
+            \centering
+            \includestandalone[width=0.3\textwidth]{../grafok/bfs_2018zh_1}
+        \end{figure}
+    \end{enumerate}
+\end{document}

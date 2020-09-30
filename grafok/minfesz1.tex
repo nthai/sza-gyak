@@ -1,0 +1,27 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+		[vertex/.style={draw,circle,inner sep = 0mm, minimum size = 5mm},
+		 edgelabel/.style = {fill = white, inner sep = 0.5mm, font=\small}]
+		\node[vertex] (a) at (0,0) {a};
+		\node[vertex] (b) at (2,0) {b};
+		\node[vertex] (c) at (-2,-2) {c};
+		\node[vertex] (d) at (4,-2) {d};
+		\node[vertex] (e) at (0,-4) {e};
+		\node[vertex] (f) at (2,-4) {f};
+		
+		\draw[-] (a) to node[edgelabel] {$2$} (b);
+		\draw[-] (a) to node[edgelabel] {$1$} (c);
+		\draw[-] (a) to node[edgelabel] {$2$} (e);
+		\draw[-] (a) to node[edgelabel] {$2$} (f);
+		\draw[-] (b) to node[edgelabel] {$3$} (d);
+		\draw[-] (b) to node[edgelabel] {$2$} (f);
+		\draw[-] (c) to node[edgelabel] {$1$} (e);
+		\draw[-] (d) to node[edgelabel] {$3$} (f);
+		\draw[-] (e) to node[edgelabel] {$2$} (f);
+		
+\end{tikzpicture}
+\end{document}
