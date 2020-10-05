@@ -1,0 +1,30 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+		[vertex/.style={draw,circle,inner sep = 0em, minimum size = 1.2em},
+		 edgelabel/.style = {fill = white, inner sep = 0.1em, font=\small}]
+		\node[vertex] (a) at (0,0) {a};
+		\node[vertex] (b) at (2,0) {b};
+		\node[vertex] (s) at (-2,-2) {s};
+		\node[vertex] (c) at (4,-2) {c};
+		\node[vertex] (d) at (0,-4) {d};
+		\node[vertex] (e) at (2,-4) {e};
+		
+		\draw[-{>[length=8, width=8]}] (s) to node[edgelabel] {$2$} (a);
+		\draw[-{>[length=8, width=8]}] (s) to node[edgelabel] {$5$} (d);
+		\draw[-{>[length=8, width=8]}] (a) to node[edgelabel] {$1$} (b);
+		\draw[-{>[length=8, width=8]}] (a) to node[edgelabel] {$4$} (d);
+		\draw[-{>[length=8, width=8]}] (a) to node[edgelabel, near start] {$3$} (e);
+		\draw[-{>[length=8, width=8]}] (b) to node[edgelabel] {$5$} (c);
+		\draw[-{>[length=8, width=8]}] (b) to node[edgelabel, near start] {$4$} (d);
+		\draw[-{>[length=8, width=8]}] (d) to node[edgelabel] {$-2$} (e);
+		\draw[-{>[length=8, width=8]}] (e) to node[edgelabel] {$-1$} (b);
+		\draw[-{>[length=8, width=8]}] (e) to node[edgelabel] {$6$} (c);
+\end{scope}
+\end{tikzpicture}
+\end{document}
