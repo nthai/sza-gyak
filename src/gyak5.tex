@@ -46,39 +46,49 @@
 
         \item Határozzuk meg a legrövidebb utakat az alábbi gráfokban az $s$ és a $t$ csúcs között!
         \begin{figure}[!h]
-            \centering
-            \includestandalone{../grafok/dijkstra1}
-            \includestandalone{../grafok/dijkstra2}
+            \centering \hfill
+            \includestandalone[scale=0.7]{../grafok/dijkstra1}\hfill
+            \includestandalone[scale=0.7]{../grafok/dijkstra2}\hfill \hfill
         \end{figure}
-        \item Határozzuk meg az alábbi bal oldali gráfban a legrövidebb utakat az $s$ és a többi csúcs között a Bellman-Ford algoritmussal!
-        \begin{figure}[h]
+        % \item Határozzuk meg az alábbi bal oldali gráfban a legrövidebb utakat az $s$ és a többi csúcs között a Bellman-Ford algoritmussal!
+        % \begin{figure}[h]
+        %     \centering
+        %     \begin{subfigure}{0.4\textwidth}
+        %         \centering
+        %         \includestandalone{../grafok/bellmanford1}
+        %     \end{subfigure}
+        %     \begin{subfigure}{0.4\textwidth}
+        %         \centering
+        %         \includestandalone{../grafok/floyd1}
+        %     \end{subfigure}
+        % \end{figure}
+        
+        % \item Határozzuk meg a fenti jobb oldali gráfban az egyes csúcsok közti legrövidebb utakat a Floyd algoritmus segítségével!
+        
+        
+        \item Az alábbi ábrákon gráfok részletei láthatóak, amin épp a Dijkstra algoritmust hajtjuk végre. Az $a$, $b$ és $c$ csúcsokat már bevettük a megvizsgált csúcsok halmazába, a csúcsok mellett zárójelben vannak feltüntetve, hogy a kezdőponttól milyen távol vannak. Melyik csúcsot fogja bevenni következőnek a Dijkstra algoritmus és milyen távolsággal?
+        \begin{figure}[!h]
             \centering
-            \begin{subfigure}{0.4\textwidth}
+            \begin{subfigure}{0.24\textwidth}
                 \centering
-                \includestandalone{../grafok/bellmanford1}
+                \includestandalone[width=\textwidth]{../grafok/dijkstra_small_7}
             \end{subfigure}
-            \begin{subfigure}{0.4\textwidth}
+            \begin{subfigure}{0.24\textwidth}
                 \centering
-                \includestandalone{../grafok/floyd1}
+                \includestandalone[width=\textwidth]{../grafok/dijkstra_small_8}
+            \end{subfigure}
+            \begin{subfigure}{0.24\textwidth}
+                \centering
+                \includestandalone[width=\textwidth]{../grafok/dijkstra_small_9}
+            \end{subfigure}
+            \begin{subfigure}{0.24\textwidth}
+                \centering
+                \includestandalone[width=\textwidth]{../grafok/dijkstra_small_10}
             \end{subfigure}
         \end{figure}
-        
-        \item Határozzuk meg a fenti jobb oldali gráfban az egyes csúcsok közti legrövidebb utakat a Floyd algoritmus segítségével!
-        
-        \hrule
-
-        \item \textbf{[PZH-2014]} Az alábbi bal oldali ábrán látható valamely $G$ gráf egy szélességi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ szomszédosak $G$-ben?
-        
-        \begin{minipage}{6in}
-            \centering
-            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
-            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
-        \end{minipage}
-        
-        \item \textbf{[PZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított szélességi bejárása után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit.
 
         \item Az alábbi $K_4$ (irányítatlan) gráfok éleire írjunk pozitív egész élsúlyokat úgy, hogy ha a Dijkstra algoritmust $s$-ből indítjuk, akkor a vastagon szedett élek mentén adja a legrövidebb utakat; a csúcsokat minden esetben (egyértelműen) $1$, $2$, $3$ sorrendben látogatja meg; az élsúlyok összege a lehető legkisebb.
-        \begin{figure}[h]
+        \begin{figure}[!h]
             \centering
             \begin{subfigure}{0.15\textwidth}
                 \centering
@@ -105,6 +115,19 @@
                 \includestandalone{../grafok/dijkstra_small_6}
             \end{subfigure}
         \end{figure}
+
+        \hrule
+
+        \item \textbf{[PZH-2014]} Az alábbi bal oldali ábrán látható valamely $G$ gráf egy szélességi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ szomszédosak $G$-ben?
+        
+        \begin{minipage}{6in}
+            \centering
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
+        \end{minipage}
+        
+        \item \textbf{[PZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított szélességi bejárása után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit.
+
 
         \item \textbf{[PZH-2010]} Adott egy $G$ gráf, az $e$ él hosszát jelölje $l(e)$. Minden él hosszát növeljük meg $2$-vel, azaz legyen $l'(e)=l(e)+2$ minden élre. Tegyük fel, hogy $u$ és $v$ között $P$ egy legrövidebb út az $l'$ élhosszokkal. Igaz-e, hogy $P$ biztosan egy legrövidebb út $u$ és $v$ között az $l$ élhosszokra nézve is?
         
@@ -137,20 +160,20 @@
             \includestandalone[width=\textwidth]{../grafok/undirected_weightless_1}
         \end{minipage}
 
-        \item Úgy tűnik a Galaktikus Föderáció kezd kilábalni a gazdasági csődjéből (miután sikerült visszaállítani a centralizált galaktikus pénznem, a blemflarck értékét $0$-ról $1$-re). Rick Sanchez azonban ezt nem hagyhatja annyiban, az intergalaktikus terrorista ismét monetáris csapást készül mérni. A föderációs adatbázisokat meghekkelve Rick átállította a galaxis pénzeinek árfolyamát az alábbi táblázat alapján, mely azt írja le, hogy egy adott pénz egységéért mennyit kap egy másikból (pl. itt $16$ flurboért $1$ brapple-t lehet kapni). Rick terve az, hogy ügyes átváltásokkal végtelen sok pénzt fog tudni termelni magának. Sikerülni fog-e ez neki emellett a módosított árfolyam mellett.
+        % \item Úgy tűnik a Galaktikus Föderáció kezd kilábalni a gazdasági csődjéből (miután sikerült visszaállítani a centralizált galaktikus pénznem, a blemflarck értékét $0$-ról $1$-re). Rick Sanchez azonban ezt nem hagyhatja annyiban, az intergalaktikus terrorista ismét monetáris csapást készül mérni. A föderációs adatbázisokat meghekkelve Rick átállította a galaxis pénzeinek árfolyamát az alábbi táblázat alapján, mely azt írja le, hogy egy adott pénz egységéért mennyit kap egy másikból (pl. itt $16$ flurboért $1$ brapple-t lehet kapni). Rick terve az, hogy ügyes átváltásokkal végtelen sok pénzt fog tudni termelni magának. Sikerülni fog-e ez neki emellett a módosított árfolyam mellett.
 
-        \begin{table}[h]
-            \centering
-            \begin{tabular}{|c|c|c|c|c|c|}
-                \hline
-                    & Blemflarck & Brapple & Flurbo & Schmeckle & Smidgen \\ \hline
-                Blemflarck & $1:1$ & $8:1$ & $1:2$ & $4:1$ & $128:1$ \\ \hline
-                Brapple & $1:4$ & $1:1$ & $16:1$ & $1:2$ & $8:1$ \\ \hline
-                Flurbo & $4:1$ & $16:1$ & $1:1$ & $4:1$ & $64:1$ \\ \hline
-                Schmeckle & $4:1$ & $8:1$ & $1:4$ & $1:1$ & $8:1$ \\ \hline
-                Smidgen & $1:4$ & $1:8$ & $4:1$ & $4:1$ & $1:1$ \\ \hline
+        % \begin{table}[h]
+        %     \centering
+        %     \begin{tabular}{|c|c|c|c|c|c|}
+        %         \hline
+        %             & Blemflarck & Brapple & Flurbo & Schmeckle & Smidgen \\ \hline
+        %         Blemflarck & $1:1$ & $8:1$ & $1:2$ & $4:1$ & $128:1$ \\ \hline
+        %         Brapple & $1:4$ & $1:1$ & $16:1$ & $1:2$ & $8:1$ \\ \hline
+        %         Flurbo & $4:1$ & $16:1$ & $1:1$ & $4:1$ & $64:1$ \\ \hline
+        %         Schmeckle & $4:1$ & $8:1$ & $1:4$ & $1:1$ & $8:1$ \\ \hline
+        %         Smidgen & $1:4$ & $1:8$ & $4:1$ & $4:1$ & $1:1$ \\ \hline
 
-            \end{tabular}
-        \end{table}
+        %     \end{tabular}
+        % \end{table}
     \end{enumerate}
 \end{document}
