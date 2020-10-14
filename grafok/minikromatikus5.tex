@@ -1,0 +1,17 @@
+\documentclass[tikz]{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \begin{document}
+    \begin{tikzpicture}
+            [every node/.style={draw,circle,inner sep = 0mm, minimum size = 2mm}]
+            \graph[clockwise, empty nodes, n = 7, phase=90]{
+                subgraph C_n[name = A, radius=1cm]
+            };
+
+            \foreach \i in {2, 3, 4, 5, 6}{
+                \draw (A 1) -- (A \i);
+            }
+
+    \end{tikzpicture}
+    \end{document}

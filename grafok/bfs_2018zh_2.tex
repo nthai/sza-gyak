@@ -1,0 +1,30 @@
+% Forrás: Fleiner Tamás gyakorlat
+
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+		[vertex/.style={draw,circle,inner sep = 0mm, minimum size = 15},
+         edgelabel/.style = {fill = white, inner sep = 2, font=\small}]
+
+        \node[vertex] (a) at (0,  4) {$a$};
+        \node[vertex] (b) at (2, 4) {$b$};
+        \node[vertex] (c) at (0, 2) {$c$};
+        \node[vertex] (d) at (2, 2) {$d$};
+        \node[vertex] (e) at (4, 2) {$e$};
+        \node[vertex] (f) at (0, 0) {$f$};
+        \node[vertex] (g) at (2, 0) {$g$};
+        \node[vertex] (h) at (4, 0) {$h$};
+
+        \draw[-] (a) to (b);
+        \draw[-] (a) to (c);
+        \draw[-] (c) to (d);
+        \draw[-] (c) to (f);
+        \draw[-] (d) to (e);
+        \draw[-] (d) to (g);
+        \draw[-] (e) to (h);
+		
+\end{tikzpicture}
+\end{document}

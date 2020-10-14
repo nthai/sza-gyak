@@ -1,0 +1,16 @@
+\documentclass[a4paper]{article}
+
+\usepackage{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+	\input{petersen}
+	\input{hexarsen}
+	\input{kromatikus1}
+	\input{kromatikus2}
+	\begin{figure}
+		\centering
+		\includestandalone[scale = 2]{folyam1}
+	\end{figure}
+\end{document}

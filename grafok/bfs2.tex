@@ -1,0 +1,36 @@
+\documentclass[tikz]{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \begin{document}
+    \begin{tikzpicture}
+    \begin{scope}
+            [vertex/.style={draw,circle,inner sep = 0em, minimum size = 1.2em},
+             edgelabel/.style = {fill = white, inner sep = 0.1em, font=\small}]
+            \node[vertex] (a) at (0,0) {a};
+            \node[vertex] (b) at (2,0) {b};
+            \node[vertex] (s) at (-2,-2) {c};
+            \node[vertex] (c) at (0,-2) {d};
+            \node[vertex] (d) at (2,-2) {e};
+            \node[vertex] (t) at (4,-2) {f};
+            \node[vertex] (e) at (0,-4) {g};
+            \node[vertex] (f) at (2,-4) {h};
+            
+            \draw[-] (a) to (b);
+            \draw[-] (b) to (t);
+            \draw[-] (s) to (a);
+            \draw[-] (s) to (e);
+            \draw[-] (c) to (a);
+            \draw[-] (c) to (s);
+            \draw[-] (d) to (a);
+            \draw[-] (d) to (b);
+            \draw[-] (d) to (c);
+            \draw[-] (d) to (t);
+            \draw[-] (t) to (f);
+            \draw[-] (e) to (c);
+            \draw[-] (e) to (d);
+            \draw[-] (e) to (f);
+            \draw[-] (f) to (d);
+    \end{scope}
+    \end{tikzpicture}
+    \end{document}

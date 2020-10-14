@@ -1,0 +1,15 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+		[every node/.style={draw, circle,inner sep = 0em, minimum size = 2mm}]
+		\graph[clockwise, radius = 2cm, empty nodes]{subgraph C_n[n = 5, name = A]};
+		\graph[clockwise, radius = 1cm, empty nodes] {subgraph I_n [n = 5, name = B]};
+		\foreach \i [evaluate={\j=int(mod(\i+2,5)+1);}] in {1,...,5}{
+		\draw (A \i) -- (B \i);
+		\draw (B \i) -- (B \j);
+		}
+\end{tikzpicture}
+\end{document}

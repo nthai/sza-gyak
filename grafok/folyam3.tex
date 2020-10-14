@@ -1,0 +1,33 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}
+	[
+		vertex/.style={draw,circle,inner sep = 0em, minimum size = 0.5em, fill=white},
+		edgelabel/.style = {fill = white, inner sep = 0.1em, font=\small},
+		nodelabel/.style = {color = red}
+	]
+	\node[vertex, label = {[nodelabel]left : s}] (s) at (0, 0) {};
+	\node[vertex, label = {[nodelabel]above : a}] (a) at (1, 2) {};
+	\node[vertex, label = {[nodelabel]above : b}] (b) at (4, 2) {};
+	\node[vertex, label = {[nodelabel]above : c}] (c) at (3, 0) {};
+	\node[vertex, label = {[nodelabel]below : d}] (d) at (1, -2) {};
+	\node[vertex, label = {[nodelabel]below : e}] (e) at (4, -2) {};
+	\node[vertex, label = {[nodelabel]right : t}] (t) at (6, 0) {};
+	
+	\draw[-{>[length=5, width=5]}] (s) to node[edgelabel] {$(8)$} (a);
+	\draw[-{>[length=5, width=5]}] (s) to node[edgelabel] {$(6)$} (d); 
+	\draw[-{>[length=5, width=5]}, out = 90, in = -120] (d) to node[edgelabel, near start] {$(6)$} (b); 
+	\draw[-{>[length=5, width=5]}] (a) to node[edgelabel] {$(4)$} (b);
+	\draw[-{>[length=5, width=5]}] (a) to node[edgelabel] {$(5)$} (c);
+	\draw[-{>[length=5, width=5]}] (b) to node[edgelabel] {$(4)$} (t);
+	\draw[-{>[length=5, width=5]}] (c) to node[edgelabel] {$(2)$} (e);
+	\draw[-{>[length=5, width=5]}] (c) to node[edgelabel] {$(12)$} (t);
+	\draw[-{>[length=5, width=5]}] (d) to node[edgelabel] {$(2)$} (c);
+	\draw[-{>[length=5, width=5]}] (d) to node[edgelabel] {$(3)$} (e);
+	\draw[-{>[length=5, width=5]}] (e) to node[edgelabel] {$(2)$} (t);
+\end{tikzpicture}
+\end{document}

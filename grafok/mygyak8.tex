@@ -1,0 +1,276 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage[top = 2.5 cm, left = 2.5 cm, right = 2.5 cm, bottom = 2.5 cm]{geometry}
+\usepackage{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\usepackage{amssymb,graphicx,color}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\newcommand{\defi}{{\bf Def:} }
+\newcommand{\megf}{{\bf Megfigyelés:} }
+\newcommand{\ul}{\underline}
+\long\def\mo#1{}
+
+\begin{document}
+\begin{center}
+{\huge A számítástudomány alapjai 2015.\ I. félév}\\ 
+{\large 8. gyakorlat.
+%2015.\ október 28.
+\"Ossze\'all\'\i totta: Fleiner Tam\'as ({\tt fleiner@cs.bme.hu}) nyomán Nguyen Tuan Hai}
+\end{center}
+
+\noindent
+{\bf\large\underline{Tudnivalók}}
+
+{\bf Edmonds-Karp tétel:} Ha a javító utas algoritmusban mindig egy lehető
+legkevesebb élből álló javító út mentén javítunk, akkor legfeljebb $nm$
+javítás kell a maximális folyam megtalálásához, ahol $n$ a hálózat
+csúcsainak, $m$ pedig az éleinek száma.
+
+
+{\bf Egészértékűségi (EgÉr) lemma:} Ha a $c$ kapacitásfüggvény minden élen
+egész értéket vesz fel, akkor a maximális nagyságú folyamok közt létezik
+olyan $f$ folyam, ami minden élen egész értéket vesz fel (azaz ha a $c$
+kapacitás egész, akkor létezik \emph{egészfolyam} a maximális folyamok
+között).
+
+
+\defi A $G(V,E)$ gráfban éleinek $F$ részhalmaza (más \emph{független}
+szóval \emph{párosítás}), ha $F$ élei diszjunktak, azaz $G$ bármely csúcsa
+legfeljebb egy élnek végpontja. (És $F$-ben hurokélek sincsenek.) A
+$G$-beli független élek maximális számát $\nu(G):=\{|F|:F$ a $G$
+párosítása$\}$ jelöli, tehát $\nu(G)=k$, ha $G$-nek van $k$ páronként
+diszjunkt éle, de $k+1$ nincs. A $G$ gráf egy \emph{teljes párosítása} alatt a
+$G$ olyan $F$ párosítását értjük, amely $G$ minden pontját \emph{fedi}, azaz
+$V$ minden pontjából indul $F$-nek éle.
+
+\defi 
+\iffalse
+A $G$ gráf csúcsainak $U$ részhalmaza \emph{független} ha $U$ nem feszít
+élt, azaz $U$-nak semelyik két csúcsa sem szomszédos egymással. A
+legnagyobb független ponthalmaz méretét $\alpha(G)$ jelöli, azaz
+$\alpha(G)=k$, ha van $G$-nek $k$ páronként nem szomszédos pontja, de $k+1$
+nincs.\\
+Ugyanez az $U$ ponthalmaz 
+\fi
+A $G$ gráf csúcsainak $U$ részhalmaza \emph{lefogó} tulajdonságú, ha
+$U$ \emph{lefogja} $G$ minden élét, azaz $G$ minden élének van $U$-beli
+végpontja, más szóval $G-U$ üres gráf. A $G$ minimális méretű lefogó
+ponthalmazának mérete $\tau(G)=k$ ha van $k$ méretű lefogó ponthalmaz
+$G$-ben, de $k-1$ méretű nincs.
+
+\megf  Tetszőleges véges $G=(V,E)$ gráfra 
+%(1) $\nu(G)\le \frac 12|V|$ és (2)
+$\nu(G)\le \tau(G)$. 
+
+\defi Ha $G=(V,E)$ és  $X\subseteq V$ akkor $N(X):=\{v\in V:
+\exists x\in X, vx\in E\}$ az $X$ ponthalmaz $G$-beli szomszédsága.
+
+
+
+{\bf Hall tétel:} Ha $A$ és $B$ a $G$ páros gráf színosztályai, úgy
+pontosan akkor létezik $G$-nek $A$-t fedő párosítása, ha az $A$ színosztály
+pontjainak tetszőleges $X$ részhalmazára $|X|\le |N(X)|$ teljesül.
+
+
+{\bf Frobenius tétele:} Tfh $G$ páros, színosztályai $A$ és $B$.
+Ekkor $G$-nek pontosan akkor van teljes párosítása, ha $|A|=|B|$ és $|X|\le
+|N(X)|$ teljesül tetszőleges $X\subseteq A$ részhalmazra.
+
+{\bf Kőnig tétel}: Ha $G$ véges, páros gráf, akkor $\tau(G)=\nu(G)$.
+
+{\bf Alternáló utas algoritmus}:\\
+ \ul{Input}: $G=(A,B;E)$ ps
+gráf.\hfil \ul{Output}: $M$ maximális párosítás.\\
+Kiindulunk az $M=\emptyset$ párosításból, és javító utat keresünk. Ez olyan
+ú.n.\ alternáló út, aminek felváltva $M$-beliek és $M$-en kívüliek az élei
+és $A$ egy fedetlen pontjából $B$ fedetlen pontjába. Ezt megtehetjük pl
+úgy, hogy $M$ éleit $B$-ből $A$-ba, $G$ többi élét pedig $A$-ból $B$-be
+irányítjuk, majd BFS-sel ellenőrizzük, hogy van-e irányított út a megfelelő
+fedetlen pontok között. Ha van ilyen út, akkor az egy javító út. Ha
+találtunk ilyet, akkor az út $M$-beli éleit kidobjuk $M$-ből, az $M$-en
+kívülieket pedig bevesszük $M$-be. Ezáltal egy újabb párosítást kapunk, ami
+a korábbinál eggyel több élt tartalmaz. Ezt követően újabb javító utat
+keresünk. Ha már nincs javító út, akkor az aktuális $M$ párosítás
+maximális, azaz a mérete $\nu(G)$. Az $A$-beli fedetlen csúcsból alternáló
+úton elérhető $B$-beli csúcsokkal és az $M$ által fedett, $A$-beli fedetlen
+csúcsból alternáló úton nem elérhető $A$-beli csúcsok egy $\nu(G)$ méretű
+lefogó ponthalmazt alkotnak.
+
+\defi 
+A $G$ gráf csúcsainak $U$ részhalmaza \emph{független} ha $U$ nem feszít
+élt, \emph{lefogó} tulajdonságú, ha
+$U$ \emph{lefogja} $G$ minden élét, azaz $G$ minden élének van $U$-beli
+végpontja. A $G$ éleinek $F$ részhalmaza \emph{független}, ha végpontjaik
+különbözők, végül $F$ \emph{lefogó élhalmaz} ha $V(F)=V(G)$. \\
+$\alpha(G)$: független pontok maximális száma; \ \ 
+$\tau(G)$: lefogó pontok minimális száma;\\
+$\nu(G)$: független élek maximális száma; \ \ 
+$\rho(G)$: lefogó élek minimális száma.
+
+
+\megf  Tetszőleges $G=(V,E)$ véges gráfra (1) $\nu(G)\le \frac 12|V|$, (2)
+$\nu(G)\le \tau(G)$, valamint (3) ha $G$-nek nincs izolált pontja, akkor
+$\alpha (G)\le \rho(G)$. Továbbá (4) $U\subseteq V$ pontosan akkor
+független, ha  $V\setminus U$ lefogó ponthalmaz. Végül: ha $G$ egyszerű,
+akkor (5) $\alpha(G)=\omega (\overline G)$.
+
+{\bf Gallai tételei:} Tetszőleges véges, $n$ pontú $G$ gráfra (1)
+$\tau(G)+\alpha(G)=n$ ha $G$ hurokélmentes, és (2) $\nu(G)+\rho(G)=n$ ha
+$G$-ben nincs izolált pont.
+
+{\bf Kőnig tétele:} Ha $G$ véges páros gráf és nincs izolált pontja, akkor
+$\alpha(G)=\rho(G)$.
+
+{\bf Táblázatba sűrített tudomány}
+
+\begin{tabular}{|r|c|c|l|}
+\hline
+$\alpha\le \rho$  &max ftn&min lef&ps gráfra $\nu=\tau$ (Kőnig)\\
+\hline
+pont &$\alpha$ & $\tau$& $\not\exists$ hurokél: $\alpha+\tau=n$ (Gallai 1)\\
+\hline
+él &$\nu$ & $\rho$ & $\not\exists$ iz. pont: $\nu+\rho=n$  (Gallai 2)\\
+\hline
+$\nu\le \tau\le 2\nu$ &&&ps gráfra ($\not\exists$ iz. pont) $\alpha=\rho$
+(Kőnig)\\ 
+\hline
+\end{tabular}\\
+
+{\bf\large\underline{Gyakorlatok}}
+
+\begin{enumerate}
+	\item A Gyűrű Szövetsége épp átkelőben volt Mórián mikor hirtelen üldözőbe vette őket a balrog. A lény túl félelmetes ahhoz, hogy akárki is szembeszálljon vele, ezért az egyetlen megoldás az, ha Gandalf beomlasztja a járatokat és felrobbantja a hidakat a többiek mögött. Az alábbi gráf szemlélteti, hogy a balrog milyen irányokba tud közlekedni, valamint azt, hogy az egyes utakat mennyi idő alatt tudja Gandalf megszűntetni. Mennyi az a minimális idő, ami alatt Gandalf meg tudja akadályozni, hogy a balrog átmenjen az $s$ pontból a $t$-be? Mely járatokat kell neki ehhez törölnie?
+	\begin{figure}[h]
+		\centering
+		\includestandalone[scale = 1.5]{folyam2}
+	\end{figure}
+	\item Keressünk maximális párosítást az alábbi gráfokban!
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+			\centering
+			\includestandalone[scale=1.5]{maxpar4}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.45\textwidth}
+			\centering
+			\includestandalone[scale=1.5]{maxpar1}
+		\end{subfigure}
+	\end{figure}
+	\begin{figure}[h]
+	\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+			\centering
+			\includestandalone[scale=1.5]{maxpar2}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.45\textwidth}
+			\centering
+			\includestandalone[scale=1.5]{maxpar3}
+		\end{subfigure}
+	\end{figure}
+	\item Bizonyítsuk be, hogy bármely $2$-reguláris páros gráfban (tehát amiben minden fokszám $2$) a különböző teljes párosítások száma mindig $2$-nek valamilyen pozitív egész kitevős hatványa.
+%\mo{A gráf komponensei ps körök, a teljes párosítások száma $2^k$, ahol $k$ a körkomponensek száma.}
+
+\item Igazoljuk, hogy tetszőleges véges $G$ gráfra $\tau(G)\le 2 \nu (G)$ teljesül.
+
+%\mo{Ha $M$ egy $\nu(G)$ méretű ftn élhalmaz, akkor ennek $2\nu(G)$ csúcsa van, és ezek lefogó ponthalmazt alkotnak, hiszen $M$ nem bővíthető párosítás. Ezért $\tau(G)\le 2\nu(G)$.}
+
+\item Bizonyítsuk be, hogy tetszőleges $n$-csúcsú, egyszerű $G$ gráfra $\tau(G)-\nu(G)< \frac n2$ teljesül.%\hfill \hbox{(ZH '02)}
+
+%\mo{Ha $M$ egy $\nu(G)$ méretű ftn élhalmaz, akkor ennek $2\nu(G)$ csúcsa van, és ezek lefogó ponthalmazt alkotnak, hiszen $M$ nem bővíthető párosítás. Ezért $\tau(G)\le 2\nu(G)\le \nu(G)+\frac n2$. Ha végig $=$ áll, akkor $\nu(G)=\frac n2$, és használjuk a $\tau(G)\le n-1$ egyenlőtlenséget.}
+
+\item Tfh $G$ egyszerű, $|V(G)|=2000$ és $\tau(G)=678$. Igazoljuk, hogy $G$-ben nincs teljes párosítás! %\hfill \hbox{(V '99)} 
+
+%\mo{$\nu\le \tau=678$, szóval $\nu\ne 1000$, azaz nincs TP.}
+
+\item Legyen $G$ egy olyan egyszerű gráf, amelynek $1000$ csúcsa van és minden csúcs fokszáma legalább $6$. Igazoljuk, hogy $\nu(G)\ge 6$.%\hfill \hbox{(V '01)} 
+
+
+%\mo{Legyen $U$ minimális méretű lefogó ponthalmaz. Mivel $|U|\le 2\nu(G)$, ezért ha $|U|\ge 12$, akkor $|\nu|\ge 6$, és kész vagyunk. Ha azonban $|U|\le 11$, akkor van $U$-n kívüli csúcs. Ennek legalább $6$ szomszédja van, mind $U$-ban. Ezért $|U|\ge 6$, és véve $6$ $U$-n kívüli csúcsot, választhatunk nekik különböző $U$-beli szomszédokat. Van tehát $6$ diszjunkt él, $\nu\ge 6$.}
+
+%\item \fbox{Gyakoroljuk az alternáló utas algotitmust kis gráfokon.} Magyarázzuk meg, mi köze az alternáló utas algoritmusnak a növelő utas algoritmushoz.
+
+%\mo{Max párosítás keresésekor tkp egy max nagyságú egészfolyamot keresünk abban a hálózatban, amit úgy kapunk, hogy a páros gráfot $A$-tól $B$ felé irányítjuk, bevezetünk egy forrást, ahonnan minden $A$-belibe él fut, egy nyelőt, ahova minden $B$-beliből él fut, és minden élnek $1$ kapacitást adunk. A gráf eredeti élein folyamot hordozó élek maximális párosítást adnak, és az alternáló utas algoritmus pontosan a növelő utas algoritmust imitálja.}
+
+
+\item Bizonyítsuk be, hogy ha egy $G=(V,E)$ (nem feltétlenül páros) gráfban az $M$ párosítás nem maximális (azaz $|M|<\nu(G)$), akkor van $M$-hez javító út, azaz olyan alternáló út, amely $M$ által fedetlen pontokat köt össze.
+
+%\mo{Ha $M'$ egy $\nu(G)$ méretű maximális párosítás $G$-ben, akkor $M$ és $M'$ szimmetrikus különbségének minden komponense alternáló út vagy kör. Van olyan komponens, amiben több $M'$-beli él van, mint $M$-beli, és az jó.}
+
+\item Adott egy $G$ páros gráf ($A$ és $B$ színosztályokkal) és $G$ minden $v$ csúcsához egy $b(v)$ pozitív egész szám. Az a cél, hogy a lehető legtöbb élét kiválasszuk $G$-nek úgy, hogy minden $v$ csúcs legfeljebb $b(v)$ kiválasztott élnek legyen végpontja. Adjunk hatékony algoritmust ennek a problémának a megoldására. (A feladatban körülírt élhalmazt $b$-párosításnak is szokás hívni.)
+
+%\mo{Bevezetjük az $s$ és $t$ terminálokat, $s$-ből minden $A$-beli csúcsba, ill. minden $B$-beli csúcsból $t$-be irányított élt vezetünk. Ezen élek kapacitása $b(v)$ lesz az adott $v$-re, $G$ éleinek egységnyi kapacitást adunk, és $A$-tól $B$ felé irányítjuk azokat. Az így kapott hálózatban egy tetszőleges egészfolyam nagysága megegyezik azon $G$-beli élek számával, amelyeken egységnyi folyam folyik, és ezen élek $b$-párosítást alkotnak. Ráadásul minden $b$-párosításból készíthető a párosítás méretével megegyező nagyságú folyam. Szóval maximális nagyságú egészfolyamot keresünk, azt meg tanultuk, hogy kell.}
+
+
+
+\item Egy kiránduláson $n$ házaspár vesz részt, és közöttük kellene elosztani $2n$ különböző csokoládét úgy, hogy mindenki egyet kapjon. Tudjuk, hogy minden részvevő legalább $n$ fajtát szeret a $2n$-féle csokoládé közül, és az is teljesül, hogy minden csokoládét szereti minden házaspárnak legalább az egyik tagja. Bizonyítsuk be, hogy ekkor kioszthatók úgy a csokoládék, hogy mindenki olyat kapjon, amit szeret. %\hfill \hbox{(ZH '99)}
+
+%\mo{Gráf csúcsai az emberek, élei a szeretés. Cél a TP. Elég a Hall feltételt kell ellenőrizni az emberekre. Ha legf $n$ embert veszünk, akkor már egy közülük legl $n$ féle csokit szeret, ha $n$-nél többet, akkor lesz egy házaspár, akik minden csokival szeretetkapcsolatot ápolnak. A Hall feltétel a csokikra is könnyen ellenőrizhető, és ez is elég. De a Kőnigből is kijön: elég azt megmutatni, hogy $\nu=\tau\ge 2n$. Legyen ugyanis $U$ egy lefogó ponthalmaz. Ha $U$-ban nincs benne egy házaspár egyetlen tagja se, és valamelyik csoki, akkor abból a csokiból indul egy lefogatlan él. Tehát ha $U$ nem a csokihalmaz, akkor $U$-nak legalább $n$ eleme van az emberek között. Ha $U$ nem az emberhalmaz, akkor egy $U$-n kívüli ember $n$ kedvenc csokijának mindegyik is $U$-beli, így $U$-ban legalább $n$ csoki van, összesen $|U|\ge 2n$, kész.}
+
+\item Tegyük fel, hogy a $G$ egyszerű, páros gráf $A$ színosztálya $28$, a $B$ színosztálya $33$ pontú. Tegyük fel, hogy a $B$ színosztálynak valemely $Y$ részhalmazára $|Y|=18$ és $|N(Y)|=12$. Mutassuk meg, hogy az $A$ színosztályra nem teljesül a Hall feltétel, azaz létezik olyan $X\subseteq A$ halmaz, melyre $|N(X)|<|X|$.\hfill(ZH~'14)
+
+%\mo{Legyen $X:=A\setminus N(Y)$.\hf(3 pont)\\ Mivel $Y$-nak egyetlen szomszédja sincs $X$-ben, ezért $X$-nek sincs szomszédja $Y$-ban, azaz $N(X)\subseteq B\setminus Y$ .\hf(3 pont)\\ Az $X$ halmaz mérete $|X|=|A|-|N(Y)|=28-12=16$, míg $|B\setminus Y|=|B|-|Y|=33-18=15$.\hf(2~pont)\\ Ezek szerint $|N(X)|\le |B\setminus Y|=15<16=|X|$, tehát $X$-re csakugyan nem teljesül a feladatban idézett Hall feltétel.\hf(2 pont)\\ Avagy.\\ A Hall tétel szerint pontosan akkor teljesül $A$-ra a Hall feltétel, ha $G$-nek van $A$-t fedő párosítása.\hf(3~pont)\\ Azt kell tehát igazolnunk, hogy $G$-nek nincs $A$-t fedő párosítása, más szóval, hogy $\nu(G)<28$.\hf(2~pont)\\ Tekintsük $G$ egy maximális ($\nu(G)$ méretű) $M$ párosítását. Mivel a $B$ színosztály $18$ pontú $Y$ részhalmazának csak $12$ szomszédja van, ezért $M$ az $Y$-nak legfeljebb $12$ pontját fedheti,\hf(2 pont)\\ azaz $Y$-nak legalább $6$ pontja fedetlen.\hf(1 pont)\\Így $B$-nek is legalább $6$ pontját nem fedi $M$,\hf(1 pont)\\ tehát $|M|\le |B|-6=27$, és nekünk pontosan ezt kellett igazolnunk.\hf(1 pont)}
+
+\item Tegyük fel, hogy a $88$ pontú $G$ páros gráfban $\alpha(G)=44$. Igazoljuk, hogy $G$-re teljesül a Hall feltétel, azaz $|X|\le |N(X)|$ az $A$ színosztály minden $X$ részhalmaza esetén.\hspace*{0em}\hfill(pZH~'14)
+
+%\mo{Mivel $G$ páros, ezért $G$-nek nincs hurokéle, így Gallai idevágó tétele szerint $44+\tau(G)=\alpha(G)+\tau(G)=|V(G)|=88$.\hf(3 pont)\\ A $G$ gráfra Kőnig tétele is érvényes, így $\nu(G)=\tau(G)=88-44=44$.\hf(3 pont)\\ Ha egy $88$ pontú gráfban $\nu(G)=44$, akkor $G$-nek van teljes párosítása,\hf(1 pont)\\ így a Frobenius tétel szerint a $G$ gráf $A$ színosztályára teljesülnie kell a feladatban szerencsére helyesen felírt Hall feltételnek.\hf(3 pont) Igazából egyik fent használt tételre sincs szükség. A $G$ mindkét színosztálya független ponthalmaz, ezért $G$ nagyobbik színosztálya legalább $44$ pontú, azaz $\alpha(G)\ge 44$. Mivel $\alpha(G)=44$, ezért $G$ mindkét színosztályában pontosan $44$ csúcs található: $|A|=|B|=44$.\hf(2 pont)\\ Indirekt bizonyítunk: tegyük fel, hogy $|X|>|N(X)|$ teljesül valamely $X\subseteq A$ ponthalmazra.\hf(1 pont)\\ Ekkor $X$-ből nem fut él a $B\setminus N(X)$ halmaz egyetlen pontjába sem\hf(2 pont)\\ ezért $X\cup (B\setminus N(X))$ független ponthalmaz.\hf(2 pont)\\ Ám ekkor $\alpha(G)\ge |X\cup (B\setminus N(X))|=$\hf(1 pont)\\ $=|X|+|B\setminus N(X)|=|X|+|B|-|N(X))|=|X|+44-|N(X)|>44$,\hf(1 pont)\\ ami ellentmond az $\alpha(G)=44$ feltevésnek, így igazolja az indirekt feltevés hamis voltát, tehát a feladat állítása csakugyan igaz.\hf(1 pont)}
+
+\item Adjunk meg egy minimális lefogó élhalmazt és egy maximális független ponthalmazt az alábbi gráfokban.
+	\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includestandalone[scale=1.5]{paramgraf1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includestandalone[scale=1.5]{paramgraf2}
+	\end{subfigure}
+	\end{figure}
+
+\item Határozzuk meg a $C_n$ kör, a $K_n$ teljes gráf ill.\ a $K_{n,n}$ teljes páros gráf $\alpha, \tau, \nu$ ill.\ $\rho$ paramétereit. (Természetesen $n$ függvényében.) 
+
+\item Az $F$ élhalmaz a $G$ gráfban egyszerre lefogó és független. Mit mondhatunk $F$-ről? Az $U$ ponthalmaz a $G$ gráfban egyszerre lefogó és független. Mit mondhatunk $G$-ről és $U$-ról?
+
+%\mo{$F$ teljes párosítás, $U$ pedig a $G$ páros gráf egy színosztálya.}
+
+\item A $G$ gráf egyszerű, összefüggő, $100$ csúcsa van és van benne $25$ élű párosítás. Igazoljuk, hogy $\omega(\overline G)\le 75$.
+
+%\mo{Gallai és triviális dolgok miatt $\omega(\overline G)=\alpha (G)=100-\tau(G)\le 100 -\nu(G)\le 100-25=75$.}
+
+\item Mutassuk meg, hogy ha a $110$ pontú $G$ gráfnak van $73$ élből álló lefogó élhalmaza, akkor $G$-nek van $37$ élű párosítása.
+
+%\mo{Ekkor $\rho(G)\le 73$, továbbá $G$-nek nincs izolált pontja. Gallai miatt $110=\nu(G)+\rho(G)\le \nu(G)+73$, ahonnan $\nu(G)\ge 100-73=37$.}
+
+\item Legyen a $H$ gráf csúcshalmaza $\{1,2,\ldots,2001\}$, és az $i,j$ csúcsok között pontosan akkor menjen él, ha az $i+j$ szám $3$-mal osztva $1$ maradékot ad. Határozzuk meg a $\nu(G), \tau(G),\rho(G),\alpha(G)$ gráfparamétereket.%\hfill \hbox{(ZH '01)}
+
+%\mo{A $3$-as maradékosztályt kell nézni, ezek között egy teljes ps gráf és egy teljes gráf van. $\alpha=1000$, mert a ps gráfnak van TP, a teljes gráf egy pont híján kipárosítható. Gallai miatt $\rho=1001$. $\alpha=668$, mert a teljes ps gráfnak legfeljebb egy maradékosztályából választhatunk és a klikkből még egy további csúcsot. Gallai miatt $\tau=1333$.}
+
+\item Legyen a $H$ gráf csúcshalmaza $\{1,2,\ldots,74\}$, és az $i,j$ csúcsok között pontosan akkor menjen él, ha az $i+j$ és $74$ relatív prímek. Határozzuk meg a $\nu(G), \tau(G),\rho(G),\alpha(G)$ gráfparamétereket.%\hfill \hbox{(V '01)}
+
+%\mo{Ha egy szám relatív prím $74$-hez, akkor ptn és $37$-tel nem osztható. Ezért $G$ az a gráf, amiben két csúcs pontosan akkor van összekötve, ha az egyik ps, a másik ptn, továbbá a $37$-es maradékaik összege sem $37$. Ez pedig nem más, mint a $K_{37,37}$ gráfból egy TP elhagyása. Ebben a gráfban van TP, és $\alpha =37$, Gallaiból minden kijön.}
+
+
+\item Legyen a $H$ gráf csúcshalmaza $\{1,2,\ldots,74\}$, és az $i,j$ csúcsok között pontosan akkor menjen él, ha az $0<|i-j|\le 2$. Határozzuk meg a $\nu(G), \tau(G),\rho(G),\alpha(G)$ gráfparamétereket.%\hfill \hbox{(V '01)}
+
+%\mo{A szomszédos és másodszomszédos számok vannak éllel összekötve. Van TP, és minden $3$-dik szám ftn ponthalmazt alkot, aminél nagyobb ponthalmaz nem lehet, mert volna két túl közeli szám. Gallaiból jön a maradék.}
+
+\item Tegyük fel, hogy a $G$ egyszerű gráfnak $99$ pontja van, független pontjainak maximális száma $\alpha(G)=15$, ám van $G$-nek egy olyan $v$ csúcsa, hogy a legnagyobb $v$-t tartalmazó $G$-beli független ponthalmaz mérete $8$. Bizonyítsuk be, hogy $\chi(G)\ge 8$ teljesül $G$ kromatikus számára.
+
+%\mo{Indirekt tegyük fel, hogy a $G$ gráfot ki tudtuk színezni legfeljebb $7$ színnel. Az azonos színűre színezett csúcsok (azaz a színosztályok) független ponthalmazok, hisz azonos színre színezett csúcsok között nem futhat él.\hf(2 pont)\\ Mivel $\alpha (G)=15$, ezért egyetlen független ponthalmaznak, így egyetlen színosztálynak sem lehet $15$-nél több pontja. \hf(2 pont) \\ Annak a színosztálynak pedig, amelyik $v$-t tartalmazza, legfeljebb $8$ pontja lehet.\hf(2 pont)\\ A $G$ gráfnak tehát legfeljebb $6\cdot 15+8=98$ pontja lehet.\hf(2 pont)\\ Ez ellentmond annak, hogy $G$-nek $99$ pontja van, és ez az indirekt feltevés helytelenségét, azaz a $\chi(G)\ge 8$ egyenlőtlenséget igazolja.\hf(2 pont)}
+
+\item Mutassuk meg, hogy $\max\{\frac{\tau(G)}{\nu(G)}:G\mbox{ véges, egyszerű gráf}\}=2$.
+
+%\mo{Mivel a $\nu(G)$ méretű max párosítás csúcsai lefognak, ezért $\frac\tau\nu\le 2$. Másrészt $K_3$-ra ez épp $2$.}
+
+
+\item Tegyük fel, hogy a $88$ pontú $G$ páros gráf egy lefogó élhalmaza független élekből áll. Határozzuk meg $\tau(G)$ értékét, azaz a $G$-t lefogó pontok minimális számát.\hspace*{0em}\hfill(ZH'14)
+
+%\mo{A $G$ gráf egy lefogó élekből álló független élhalmaz definíció szerint a $G$ egy teljes párosítása.\hf(3 pont)\\ Mivel $G$-nek $88$ csúcsa van, ezért ez az élhalmaz $44$ élből áll,\hf(2 pont)\\ vagyis $G$-ben a független élek maximális száma $\nu(G)=44$.\hf(2 pont)\\ A $G$ gráf páros, ezért Kőnig tanult tétele szerint $\tau(G)=\nu(G)=44$.\hf(3 pont)}
+\end{enumerate}
+\end{document}

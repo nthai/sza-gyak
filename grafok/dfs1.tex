@@ -1,0 +1,30 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\usetikzlibrary{arrows.meta}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+		[every node/.style={draw,circle,inner sep = 0em, minimum size = 0.3em, fill = black},
+		 edgelabel/.style = {fill = white, inner sep = 0.1em, font=\small}]
+		\graph[clockwise, radius = 2cm, phase = 0, empty nodes]{subgraph I_n[n = 8, name = A]};
+		\node[label={$a$}] (a) at (A 7) {};
+		
+		\draw[-{>[length=5, width=5]}] (A 1) to (A 7);
+		\draw[-{>[length=5, width=5]}] (A 1) to (A 2);
+		\draw[-{>[length=5, width=5]}] (A 1) to (A 8);
+		\draw[-{>[length=5, width=5]}] (A 3) to (A 2);
+		\draw[-{>[length=5, width=5]}] (A 3) to (A 8);
+		\draw[-{>[length=5, width=5]}] (A 4) to (A 1);
+		\draw[-{>[length=5, width=5]}] (A 4) to (A 2);
+		\draw[-{>[length=5, width=5]}] (A 4) to (A 3);
+		\draw[-{>[length=5, width=5]}] (A 4) to (A 5);
+		\draw[-{>[length=5, width=5]}] (A 5) to (A 6);
+		\draw[-{>[length=5, width=5]}] (A 5) to (A 8);
+		\draw[-{>[length=5, width=5]}] (A 7) to (A 8);
+		\draw[-{>[length=5, width=5]}] (A 7) to (A 4);
+		\draw[-{>[length=5, width=5]}] (A 7) to (A 6);
+\end{scope}
+\end{tikzpicture}
+\end{document}

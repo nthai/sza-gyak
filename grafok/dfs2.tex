@@ -1,0 +1,31 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{alphalph}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+		[vertex/.style={draw,circle,inner sep = 0em, minimum size = 0.3em},
+		 edgelabel/.style = {fill = white, inner sep = 0.1em, font=\small}]
+		\foreach \i in {0, ..., 3}{
+			\foreach \j in {0, ..., 2}{
+				\node[vertex, label = above right: \alphalph{4 * \j + \i + 1}] (\alphalph{4 * \j + \i + 1}) at (2 * \i, -2 * \j){};
+			}
+		}
+		
+		\draw[-] (a) to (b);
+		\draw[-] (b) to (f);
+		\draw[-] (c) to (h);
+		\draw[-] (d) to (h);
+		\draw[-] (e) to (f);
+		\draw[-] (e) to (i);
+		\draw[-] (f) to (g);
+		\draw[-] (f) to (j);
+		\draw[-] (f) to (k);
+		\draw[-] (g) to (h);
+		\draw[-] (h) to (l);
+		
+\end{scope}
+\end{tikzpicture}
+\end{document}

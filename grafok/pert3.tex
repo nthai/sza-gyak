@@ -1,0 +1,37 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+		[vertex/.style={draw,circle,inner sep = 0em, minimum size = 1.2em},
+		 edgelabel/.style = {fill = white, inner sep = 0.1em, font=\small}]
+
+		\node[vertex] (a) at (2,0) {a};
+		\node[vertex] (b) at (4,0) {b};
+		\node[vertex] (s) at (0,-2) {s};
+		\node[vertex] (c) at (2,-2) {c};
+		\node[vertex] (d) at (4,-2) {d};
+		\node[vertex] (t) at (6,-2) {t};
+		\node[vertex] (e) at (2,-4) {e};
+		\node[vertex] (f) at (4,-4) {f};
+		
+		\draw[->] (s) to node[edgelabel] {$2$} (a);
+		\draw[->] (s) to node[edgelabel] {$2$} (c);
+		\draw[->] (s) to node[edgelabel] {$3$} (e);
+		\draw[->] (a) to node[edgelabel] {$3$} (b);
+		\draw[->] (a) to node[edgelabel] {$1$} (c);
+		\draw[->] (c) to node[edgelabel] {$p$} (d);
+		\draw[->] (e) to node[edgelabel] {$1$} (c);
+		\draw[->] (e) to node[edgelabel] {$2$} (f);
+		\draw[->] (b) to node[edgelabel] {$2$} (c);
+		\draw[->] (b) to node[edgelabel] {$2$} (d);
+		\draw[->] (b) to node[edgelabel] {$3$} (t);
+		\draw[->] (d) to node[edgelabel] {$1$} (t);
+		\draw[->] (f) to node[edgelabel] {$3$} (c);
+		\draw[->] (f) to node[edgelabel] {$2$} (d);
+		\draw[->] (f) to node[edgelabel] {$5$} (t);
+\end{scope}
+\end{tikzpicture}
+\end{document}

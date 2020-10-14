@@ -1,0 +1,10 @@
+\documentclass[tikz]{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \begin{document}
+    \begin{tikzpicture}
+            [every node/.style={draw,circle,inner sep = 0mm, minimum size = 2mm}]
+            \graph[clockwise, radius = 1cm, empty nodes]{subgraph K_n[n = 6, name = A]};
+    \end{tikzpicture}
+    \end{document}

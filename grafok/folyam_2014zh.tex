@@ -1,0 +1,36 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+		[vertex/.style={draw,circle,inner sep = 0em, minimum size = 1.2em},
+		 edgelabel/.style = {fill = white, inner sep = 0.1em, font=\small}]
+		\node[vertex] (a) at (1, 2) {a};
+		\node[vertex] (b) at (3, 2) {b};
+		\node[vertex] (c) at (5, 2) {c};
+		\node[vertex] (s) at (0, 0) {s};
+		\node[vertex] (d) at (2, 0) {d};
+		\node[vertex] (e) at (4, 0) {e};
+		\node[vertex] (t) at (6, 0) {t};
+		\node[vertex] (f) at (3,-2) {f};
+		
+		\draw[->] (s) to node[edgelabel] {$100$} (a);
+		\draw[->] (s) to node[edgelabel] {$8$} (d);
+		\draw[->] (s) to node[edgelabel] {$8$} (f);
+		\draw[->] (a) to node[edgelabel] {$80$} (b);
+		\draw[->] (b) to node[edgelabel] {$5$} (c);
+		\draw[->] (b) to node[edgelabel] {$25$} (e);
+		\draw[->] (c) to node[edgelabel] {$8$} (t);
+		\draw[->] (d) to node[edgelabel] {$5$} (b);
+		\draw[->] (d) to node[edgelabel] {$33$} (f);
+		\draw[->] (e) to node[edgelabel] {$8$} (c);
+		\draw[->] (e) to node[edgelabel] {$p$} (d);
+		\draw[->] (e) to node[edgelabel] {$8$} (t);
+		\draw[->] (f) to node[edgelabel] {$8$} (e);
+		\draw[->] (f) to node[edgelabel] {$38$} (t);
+\end{scope}
+\end{tikzpicture}
+\end{document}

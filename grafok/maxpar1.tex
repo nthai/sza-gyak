@@ -1,0 +1,35 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+	[vertex/.style={draw,circle,inner sep = 0mm, minimum size = 0.4em},
+	 edgelabel/.style = {fill = white, inner sep = 0mm, font=\tiny}]
+	\node[vertex] (b) at (0,0) {};
+	\node[vertex] [right = of b] (d) {};
+	\node[vertex] [right = of d] (f) {};
+	\node[vertex] [right = of f] (h) {};
+	\node[vertex] [right = of h] (j) {};
+	\node[vertex] [below = of b] (a) {};
+	\node[vertex] [right = of a] (c) {};
+	\node[vertex] [right = of c] (e) {};
+	\node[vertex] [right = of e] (g) {};
+	\node[vertex] [right = of g] (i) {};
+	
+	\draw (a) -- (b);
+	\draw (a) -- (f);
+	\draw (a) -- (h);
+	\draw (a) -- (j);
+	\draw (c) -- (d);
+	\draw (e) -- (d);
+	\draw (e) -- (h);
+	\draw (g) -- (d);
+	\draw (g) -- (h);
+	\draw (i) -- (b);
+	\draw (i) -- (d);
+	\draw (i) -- (f);
+	\draw (i) -- (h);
+	\draw (i) -- (j);
+\end{tikzpicture}
+\end{document}
