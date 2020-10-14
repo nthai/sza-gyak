@@ -1,0 +1,126 @@
+\documentclass[a4paper,12pt]{article}
+    
+\usepackage[top=1.5cm, bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{graphicx}
+
+\usepackage{t1enc}
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\begin{document}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2020. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large 6. gyakorlat}
+    \begin{enumerate}
+        \item Adjuk meg az alábbi bal oldali gráfnak az $a$ pontból indított mélységi fáját, és erre vonatkozóan az előre-, vissza-, és keresztéleket!
+        \begin{figure}[!h]
+            \centering
+            \begin{subfigure}{0.3\textwidth}
+                \centering
+                \includestandalone{../grafok/dfs1}
+            \end{subfigure}
+            \begin{subfigure}{0.3\textwidth}
+                \centering
+                \includestandalone[width=\textwidth]{../grafok/bellmanford1}
+            \end{subfigure}
+            \begin{subfigure}{0.3\textwidth}
+                \centering
+                \includestandalone{../grafok/floyd1}
+            \end{subfigure}
+        \end{figure}
+
+        \begin{minipage}{0.45\textwidth}
+            \item Határozzuk meg a fenti középső gráfban a legrövidebb utakat az $s$ és a többi csúcs között a Bellman-Ford algoritmussal!
+        \end{minipage}\hfill
+        \begin{minipage}{0.45\textwidth}
+            \item Határozzuk meg a fenti jobb oldali gráfban az egyes csúcsok közti legrövidebb utakat a Floyd algoritmus segítségével!
+        \end{minipage}
+        
+        \item Határozzuk meg az alábbi, bal oldali PERT problémában a legrövidebb végrehajtási időt és a kritikus tevékenységeket. Mik az egyes tevékenységekre a legutolsó időpontok, amikor azokat elkezdve a projekt még épp időben végrehajtható?
+        \begin{figure}[!h]
+            \centering
+            \includestandalone[scale=0.8]{../grafok/pert2} \hspace{2cm}
+            \includestandalone[scale=0.8]{../grafok/pert3}
+        \end{figure}
+
+        \hrule
+
+        \item Mekkora lehet a fenti jobb oldali PERT diagramban a $p$ legnagyobb értéke, úgy hogy a projekt végrehajtási időtartama minimális legyen?
+        
+        \item Az alábbi feszítőfákat az $a$ csúcsokból indított DFS után kaptuk meg. Hogy nézhetett ki az eredeti gráf az egyes esetekben? 
+        \begin{figure}[!h]
+            \centering
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_1}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_2}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_3}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_4}
+            \end{subfigure}
+        \end{figure}
+
+        \item \label{feladat:zh2011} \textbf{[ZH-2011]} Legyen a $G=(V, E)$ gráf csúcshalmaza $V = \{27,28,\ldots,33\}$, él pedig akkor fusson két csúcs között, ha indexeik relatív prímek: $E = \{ij:(i,j) = 1\}$. Rajzoljuk le $G$ diagramját, indítsunk a $27$ csúcsból mélységi bejárást. Rajzoljuk meg az így kapott fa diagramját, határozzuk meg az egyes csúcsok befejezési számát. (Több lehetséges megoldás esetén csak az egyiket kell megadni.)
+
+        \begin{minipage}{0.6\textwidth}
+            \item \textbf{[PZH-2019]} Határozzuk meg az ábrán látható PERT feladathoz tartozó minimális végrehajtási időt. Kritikus-e az $a$ csúcsnak megfelelő tevékenység?
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includestandalone[width=\textwidth]{../grafok/kruskal_2019zh}
+        \end{minipage}
+
+        \item \textbf{[ZH-2014]} A lenti bal oldali ábrán látható a $G$ gráf egy mélységi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ ill. $a$ és $e$ szomszédosak $G$ben?
+
+        \begin{minipage}{6in}
+            \centering
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
+        \end{minipage}
+
+        \item \textbf{[ZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított mélységi bejárás után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit!
+        
+
+
+        \item Úgy tűnik a Galaktikus Föderáció kezd kilábalni a gazdasági csődjéből (miután sikerült visszaállítani a centralizált galaktikus pénznem, a blemflarck értékét $0$-ról $1$-re). Rick Sanchez azonban ezt nem hagyhatja annyiban, az intergalaktikus terrorista ismét monetáris csapást készül mérni. A föderációs adatbázisokat meghekkelve Rick átállította a galaxis pénzeinek árfolyamát az alábbi táblázat alapján, mely azt írja le, hogy egy adott pénz egységéért mennyit kap egy másikból (pl. itt $16$ flurboért $1$ brapple-t lehet kapni). Rick terve az, hogy ügyes átváltásokkal végtelen sok pénzt fog tudni termelni magának. Sikerülni fog-e ez neki emellett a módosított árfolyam mellett.
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                    & Blemflarck & Brapple & Flurbo & Schmeckle & Smidgen \\ \hline
+                Blemflarck & $1:1$ & $8:1$ & $1:2$ & $4:1$ & $128:1$ \\ \hline
+                Brapple & $1:4$ & $1:1$ & $16:1$ & $1:2$ & $8:1$ \\ \hline
+                Flurbo & $4:1$ & $16:1$ & $1:1$ & $4:1$ & $64:1$ \\ \hline
+                Schmeckle & $4:1$ & $8:1$ & $1:4$ & $1:1$ & $8:1$ \\ \hline
+                Smidgen & $1:4$ & $1:8$ & $4:1$ & $4:1$ & $1:1$ \\ \hline
+
+            \end{tabular}
+        \end{table}
+
+        \item A Wallace részvénytársaság nagy beruházásra készül. Forradalmasítani akarja az új replikáns széria gyártósorait. A projekt tevékenységeit, és a tevékenységek közti időt az alábbi, bal oldali gráf szemlélteti. Az újítással az üzem középső szakaszán bármely két tevékenység közti időt le tudja csökkenteni $2$-vel (az ábrán a duplán húzott élek), viszont minden egyes csökkentés pénzbe kerül. Mely élek mentén és mennyivel érdemes csökkenteni az időt, ha a lehető legtöbbet szeretnénk gyorsítani a gyártáson, ugyanakkor fölöslegesen nem szeretnénk pénzt kidobni.
+        \begin{figure}[h]
+            \centering
+            \includestandalone{../grafok/pert5}
+        \end{figure}
+    \end{enumerate}
+\end{document}
