@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt]{article}
+    
+    \usepackage[top=1.5cm, bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+    \usepackage{graphicx}
+    
+    \usepackage{t1enc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{patterns}
+    \usetikzlibrary{arrows.meta}
+    
+    \usepackage{amssymb}
+    \usepackage{amsmath}
+
+    \begin{document}
+        \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2020. I. félév}
+        \noindent\makebox[\textwidth][c]{\Large 8. gyakorlat}
+        \begin{enumerate}
+
+            \item Szivárog az oxigén a nemzetközi űrállomáson! Az alábbi gráf az űrállomás egyes helyiségeit és az azokat összekötő folyosókat ábrázolja. A folyosókon levő számok azt jelentik, hogy mennyibe kerülne az adott folyosón a légmentes szigetelés felújítása. A Cafeteria helyiségben van egy működő oxigén szintetizátor, amely termeli az oxigént a Cafeteria-ban. Ha két helyiség között felujított folyosó fut, akkor a helyiségek oxigénszintje ki tud egyenlítődni. Továbbá lehetőségünk van egyes termekbe $3$ költségért új oxigén szintetizátort telepíteni (termenként egyet). Mi a legolcsóbb megoldás, ami biztosítja az oxigénellátást minden szobában?
+            \begin{figure}[!h]
+                    \centering
+                    \includestandalone{../grafok/among_us_map}
+            \end{figure}
+
+            \item EMERGENCY MEETING! Megszólalt a riadó. Pont úgy adódott, hogy az űrállomáson kutató $9$ űrhajós mindegyike más teremben tartózkodott a riadó megszólalásakor. A riadókor mindegyik elindult a Cafeteria-ba a lehető legrövidebb úton. A fenti gráf az űrbázis összeköttetéseit mutatja, az éleken az idők pedig azt, hogy hány percbe telik végigmenni az adott folyosón. Milyen sorrendben érkeztek meg az űrhajósok a Cafeteria-ba.
+        \end{enumerate}
+    \end{document}
