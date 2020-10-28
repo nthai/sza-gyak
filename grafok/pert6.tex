@@ -1,0 +1,37 @@
+\documentclass[tikz]{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{arrows.meta}
+    \begin{document}
+    \begin{tikzpicture}
+    \begin{scope}
+            [vertex/.style={draw,circle,inner sep = 0em, minimum size = 1.2em},
+             edgelabel/.style = {fill = white, inner sep = 0.15em, font=\small}]
+            \node[vertex] (a) at (0.0, 4.0) {a};
+            \node[vertex] (b) at (0.5, 0.4) {b};
+            \node[vertex] (c) at (1.4, 3.1) {c};
+            \node[vertex] (d) at (1.1, 5.4) {d};
+            \node[vertex] (e) at (2.7, 5.9) {e};
+            \node[vertex] (f) at (2.9, 0.0) {f};
+            \node[vertex] (g) at (4.2, 1.6) {g};
+            \node[vertex] (h) at (4.8, 4.2) {h};
+            
+            \draw[-{>[length=5, width=5]}] (b) to node[edgelabel]               {$7$} (f);
+            \draw[-{>[length=5, width=5]}] (b) to node[edgelabel, near start]   {$4$} (g);
+            \draw[-{>[length=5, width=5]}] (b) to node[edgelabel, near start]   {$3$} (h);
+            \draw[-{>[length=5, width=5]}] (c) to node[edgelabel]               {$3$} (b);
+            \draw[-{>[length=5, width=5]}] (c) to node[edgelabel, near end]     {$6$} (d);
+            \draw[-{>[length=5, width=5]}] (c) to node[edgelabel]               {$2$} (e);
+            \draw[-{>[length=5, width=5]}] (c) to node[edgelabel, near start]   {$4$} (g);
+            \draw[-{>[length=5, width=5]}] (d) to node[edgelabel]               {$5$} (a);
+            \draw[-{>[length=5, width=5]}] (e) to node[edgelabel]               {$9$} (d);
+            \draw[-{>[length=5, width=5]}] (e) to node[edgelabel, near start]   {$6$} (g);
+            \draw[-{>[length=5, width=5]}] (e) to node[edgelabel]               {$1$} (h);
+            \draw[-{>[length=5, width=5]}] (f) to node[edgelabel, near end]     {$1$} (a);
+            \draw[-{>[length=5, width=5]}] (g) to node[edgelabel]               {$6$} (f);
+            \draw[-{>[length=5, width=5]}] (h) to node[edgelabel]               {$9$} (a);
+            \draw[-{>[length=5, width=5]}] (h) to node[edgelabel]               {$11$} (g);
+    \end{scope}
+    \end{tikzpicture}
+    \end{document}
