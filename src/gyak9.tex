@@ -1,0 +1,166 @@
+\documentclass[a4paper, 12pt]{article}
+    
+    \usepackage[top=1.5cm,bottom=1.5cm,left=1cm,right=1cm]{geometry}
+    
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{arrows.meta}
+    \usepackage{alphalph}
+    
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{amsmath}
+
+    \usepackage{wrapfig}
+    
+    \begin{document}
+        \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2019. I. félév}
+        \noindent\makebox[\textwidth][c]{\Large 8. gyakorlat}
+        
+        % \noindent\centering\parbox[c][4em][c]{0.8\textwidth}{\centering Gráfok színezése, klikkméret és kromatikus szám viszonya. Páros gráf fogalma. Hálózati folyamok, Ford-Fulkerson tétel, algoritmus maximális folyam keresése, egészértékűségi lemma.}
+        
+        \begin{enumerate}
+            \item Állapítsuk meg az alábbi gráfok kromatikus számait! Mely gráfok párosak az alábbiak közül? Állapítsuk meg a $\nu$ (max. független élek), $\rho$ (min. lefogó élek), $\alpha$ (max. független pontok) és $\tau$ (min. lefogó pontok) paramétereket az alábbi gráfokban!
+            \begin{figure}[!h]
+                \centering
+                \begin{subfigure}{0.16\textwidth}
+                    \centering		
+                    \includestandalone[width=0.7\textwidth]{../grafok/k6}
+                \end{subfigure}
+                \begin{subfigure}{0.16\textwidth}
+                    \centering		
+                    \includestandalone[width=0.7\textwidth]{../grafok/minikromatikus1}
+                \end{subfigure}
+                \begin{subfigure}{0.16\textwidth}
+                    \centering
+                    \includestandalone[width=0.7\textwidth]{../grafok/minikromatikus5}
+                \end{subfigure}
+                \begin{subfigure}{0.16\textwidth}
+                    \centering
+                    \includestandalone[width=0.7\textwidth]{../grafok/minikromatikus2}
+                \end{subfigure}
+                \begin{subfigure}{0.16\textwidth}
+                    \centering
+                    \includestandalone[width=0.7\textwidth]{../grafok/minikromatikus3}
+                \end{subfigure}
+                \begin{subfigure}{0.16\textwidth}
+                    \centering
+                    \includestandalone[width=0.7\textwidth]{../grafok/minikromatikus4}
+                \end{subfigure}
+            \end{figure}
+            \item Az alábi hálózatokban valaki már létrehozott valamilyen nagyságú folyamokat. Az $s$ csúcsok a forrásokat, a $t$-k pedig a nyelőket jelölik. Az éleken zárójelben a kapacitás látható, a zárójelen kívül pedig a folyam értéke. Rajzoljuk fel a javítógráfokat és azok mentén próbáljunk meg javítani!
+            \begin{figure}[!h]
+                \centering
+                \begin{subfigure}{0.24\textwidth}
+                    \centering		
+                    \includestandalone[width=\textwidth]{../grafok/minifolyam1}
+                \end{subfigure}
+                \begin{subfigure}{0.24\textwidth}
+                    \centering
+                    \includestandalone[width=\textwidth]{../grafok/minifolyam2}
+                \end{subfigure}
+                \begin{subfigure}{0.24\textwidth}
+                    \centering
+                    \includestandalone[width=\textwidth]{../grafok/minifolyam3}
+                \end{subfigure}
+                \begin{subfigure}{0.24\textwidth}
+                    \centering
+                    \includestandalone[width=\textwidth]{../grafok/minifolyam4}
+                \end{subfigure}
+            \end{figure}
+
+            \hrule
+            
+            \item Adjunk meg egy-egy maximális nagyságú folyamot az alábbi hálózatokban, és bizonyítsuk be, hogy nagyobb folyam nem lehetséges!
+            \begin{figure}[!h]
+                \centering
+                \begin{subfigure}{0.4\textwidth}
+                    \centering		
+                    \includestandalone[scale=0.75]{../grafok/folyam3}
+                \end{subfigure}
+                \begin{subfigure}{0.4\textwidth}
+                    \centering
+                    \includestandalone[scale=0.75]{../grafok/folyam4}
+                \end{subfigure}
+            \end{figure}
+
+            \item Állapítsuk meg az alábbi gráfokban az $\omega$, $\chi$, $\nu$, $\rho$, $\alpha$ és $\tau$ paramétereket.
+            \begin{figure}[!h]
+                \centering
+                \begin{subfigure}{0.24\textwidth}
+                    \centering		
+                    \includestandalone[scale=.7]{../grafok/petersen}
+                \end{subfigure}
+                \begin{subfigure}{0.24\textwidth}
+                    \centering
+                    \includestandalone[scale=.7]{../grafok/kromatikus2}
+                \end{subfigure}
+                \begin{subfigure}{0.24\textwidth}
+                    \centering
+                    \includestandalone[scale=.7]{../grafok/kromatikus1}
+                \end{subfigure}
+                \begin{subfigure}{0.24\textwidth}
+                    \centering
+                    \includestandalone[scale=.7]{../grafok/kromatikus3}
+                \end{subfigure}
+            \end{figure}
+            
+            \hrule
+
+            \item Legyen $V(G)=\{1,2,3, \ldots , 100\}$, és legyen $ij \in E(G)$, ha $|i-j|\leq 7$. Mennyi az így meghatározott $G$ gráf $\chi(G)$ kromatikus száma?
+            
+            \item \textbf{[ZH-2010]} Legyenek a $G$ irányítatlan gráf csúcsai az $1, 2, \ldots, 100$ számok, az $i$ és $j$ csúcs között pedig akkor fusson él, ha $j<i$ esetén az $i-j$ szám $4$-gyel osztva $1$-et ad maradékul. Páros-e a $G$ gráf?
+            
+            % \item Van-e olyan $G$ gráf, amiben nincs $4$ csúcsú teljes részgráf, de $G$ mégsem színezhető ki $3$ színnel?
+            
+            % \item Legyenek a $G$ gráf csúcsai a sakktábla mezői. Két mező közt akkor fusson él, ha a huszár (bástya, futó, király) egy lépésben az egyik mezőről a másikra léphet. Mennyi a $G$ gráf kromatikus száma?
+            
+            % \item Igazoljuk, hogy ha $G$ egyszerű gráf, akkor $|E(G)|\geq \binom{\chi(G)}{2}$.
+            
+            \item Legyenek $K$ és $H$ a $G$ gráf két komponense. Legyen $G'$ az a gráf, amit $G$-ből úgy kapunk, hogy $K$ minden pontját összekötjük $H$ minden pontjával. Bizonyítsuk be, hogy $\chi(G)=\max\{\chi(K),\chi(H)\}$ ill. $\chi(G')=\chi(H)+\chi(K)$.
+            
+            \item \textbf{[PPZH-2010]} Tegyük fel, hogy $G$ olyan $2n$ csúcsú gráf, aminek van teljes párosítása. Határozzuk meg a komplementergráf kromatikus számát, $\chi(\bar{G})$-t.
+            
+            \item \textbf{[ZH-2014]} Tegyük fel, hogy a $88$ pontú $G$ páros gráf egy lefogó élhalmaza független élekből áll. Határozzuk meg $\tau(G)$ értékét, azaz a $G$-t lefogó pontok minimális számát.
+            
+            \item \textbf{[ZH-2016]} Tegyük fel, hogy valamely $G$ véges, egyszerű gráfban a lefogó ponthalmaz minimális méretére és a maximális klikkméretre $\tau(G)=\omega(G)-1$ teljesül. Igazoljuk, hogy $G$ kromatikus száma $\chi(G) = \omega(G)$.
+            
+            % \item Legfeljebb hány éle lehet annak az $n$ csúcsú $G$ gráfnak, amire $\chi(G)\leq 2$? És akkor, ha $\chi(G)\leq 3$?
+            
+            \item \textbf{[PPZH-2012]} Legyenek a $G_n$ egyszerű gráf csúcsai az $(i,j)$ számpárok, ahol $i$ és $j$ $1$ és $n$ közötti egészek. A $G$ gráf $(i,j)$ és $(k,l)$ egymástól különböző csúcsai pontosan akkor szomszédosak, ha $i=k$ vagy $j=l$. Rajzoljuk le a $G_3$ egy áttekinthető diagramját, valamint határozzuk meg a $G_3$ kromatikus számát, $\chi(G)$-t.
+            % \item \textbf{[PZH-2011]} A $G=(V,E)$ irányított gráf csúcshalmaza $V=\{v_{12},v_{13},v_{14},v_{15},v_{16}\}$ és $i < j$ esetén a $v_i v_j$ él kapacitása $c(v_i v_j) = (i,j)$, ahol $(i,j)$ jelöli az $i$ és $j$ számok legnagyobb közös osztóját. Más éle a $G$-nek nincs. Ha a $v_{15}v_{16}$ él kapacitását tetszés szerint megváltoztathatjuk, mennyi lehet a $v_{12}$-ből $v_{16}$-ba vezető maximális folyam nagysága? Mekkora az a legkisebb kapacitás a $v_{15}v_{16}$ élen, amire ez a maximális folyamnagyság elérhető?
+            % \item \textbf{[ZH-2013]} Egy $n$ csúcsú konvex sokszöget egymást nem metsző átlókkal háromszögekre bontunk (háromszögeljük). (Ezt mindig többféleképpen is meg lehet tenni.) Bizonyítsuk be, hogy akárhogyan is háromszögelünk, a kapott háromszögelésre gráfként tekintve (csúcsok a sokszög csúcsai, élek a sokszög oldalai és átlói), a kapott gráf kromatikus száma mindig ugyanannyi lesz!
+            \item \textbf{[PZH-2010]} A mellékelt ábrán látható hálózatban a $12$ kapacitású $df$ él elromlott, kapacitása $0$ lett. Határozzuk meg a kapott hálózatban a maximális $st$ folyam nagyságát.
+            \begin{figure}[!ht]
+                \centering
+                \includestandalone{../grafok/folyampzh2010}
+            \end{figure}
+            
+            Kiderült közben, hogy a kiesett élt egy $p$ kapacitású éllel tudjuk pótolni. Határozzuk meg, hogyan függ a maximális nagyságú  $st$ folyam nagysága a $p$ paraméter értékétől!
+
+            % \item %\textbf{[Codeforces \#304]}
+            % Amíg a Mortal Kombat harci torna szünetel, Skorpió és néhány barátja úgy döntenek, hogy részmun-kaidősnek mennek a helyi fatelepre. Első nap rögtön egy nagyon fontos feladatot kapnak. A fűrészgépek között nem lettek pontosan szétosztva reggel a gerendák, valahova több érkezett, valahol pedig hiány keletkezett. A fatelep fűrészgépei közötti utakat az alábbi bal oldali gráf szemlélteti, két fűrészgép akkor van összekötve, ha van köztük (kétirányú) út, az egyes fűrészgépek felett számok ábrázolják a munkadarabokat (zárójelben az, hogy pontosan mennyi gerendára van szükségük). Minden egyes fűrészgépnél több harcos is állomásozik, akik a fűrészgépüknél lévő munkadarabokat át tudják vinni egy szomszédos fűrészgéphez. Szét lehet-e osztani a gerendákat úgy, hogy minden fűrészgépnél pontosan annyi legyen, amennyire szükség van ott úgy, hogy a harcosoknak legfeljebb csak egyszer kelljen szállítaniuk? (A harcosok egyszerre indulnak el a fűrészgépektől, azaz senki nem várhatja meg, hogy a másik áthozzon neki valamennyi gerendát.)
+            % \begin{figure}[!h]
+            %     \centering
+            %     \begin{subfigure}{0.4\textwidth}
+            %         \centering		
+            %         \includestandalone[scale=0.75]{../grafok/folyam_trukk}
+            %     \end{subfigure}
+            %     \begin{subfigure}{0.4\textwidth}
+            %         \centering
+            %         \includestandalone[scale=0.6]{../grafok/diablo4altar}
+            %     \end{subfigure}
+            % \end{figure}
+
+            \item Évekkel az utolsó mobiltelefonok megsemmisítése után Diablo, a Terror Ura, megszűnt halhatatlannak lenni és így a nephalemnek sikerült is legyőznie őt. A nekromaták azonban újabb tervvel rukkoltak elő, mégpedig Lilith-et, a Gyűlölet Lányát szeretnék megidézni. Ehhez a lenti gráf szerint felvázolt oltár három pontjában ($\Lambda$, $\Gamma$, $\Xi$) kell embereket feláldozni és elfolyatni a vérüket a középső $\Psi$ pontba. Legfeljebb mennyi vért tudnak befolyatni az oltár közepébe, ha az csak a megjelölt utakon haladhat, és minden út maximális véráteresztőképességét az utakon jelölt szám mutatja?
+            \begin{figure}[!ht]
+                \centering
+                \includestandalone[scale=0.6]{../grafok/diablo4altar}
+            \end{figure}
+        \end{enumerate}
+    \end{document}
