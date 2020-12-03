@@ -1,0 +1,97 @@
+\documentclass[a4paper, 12pt]{article}
+    
+    \usepackage[top=1.5cm,bottom=1.5cm,left=0.5cm,right=1cm]{geometry}
+    
+    % \usepackage{t1enc}
+    \usepackage[utf8]{inputenc}
+    % \usepackage[magyar]{babel}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usepackage{alphalph}
+    
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{amsmath} 
+    \usepackage{amssymb} 
+    \usepackage{multicol}
+
+    \usepackage[roman, basic]{complexity}
+    
+    \begin{document}
+        \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2019. I. félév}
+        \noindent\makebox[\textwidth][c]{\Large 12. gyakorlat}
+        
+        % \noindent\centering\parbox[c][7em][c]{0.8\textwidth}{\centering Polinomiális visszavezethetőség (Karp-redukció), NP-teljesség, Cook-Levin tétel, nevezetes NP-teljes problémák: SAT, HAM, 3-SZÍN, k-SZÍN, MAXFTN, MAXKLIKK. Prímtesztelés, Fermat-teszt. Nyilvános kulcsú titkosírás, digitális aláírás. Az RSA titkosítási módszer.}
+        
+        \begin{enumerate}
+            
+            \item Bizonyítsuk be az alábbi példákban, hogy $\Pi_a \preceq \Pi_b$:
+            \begin{enumerate}
+                \item $\Pi_a$: Adott $n$ szám páros-e? \\
+                $\Pi_b$: Adott $n$ szám páratlan-e?
+
+                \item $\Pi_a$: Adott $n$ szám páratlan-e? \\
+                $\Pi_b$: Adott $n$ szám páros-e?
+
+                \item $\Pi_a$: Adott $n$ szám páros-e? \\
+                $\Pi_b$: Adott $G$ gráf kiszínezhető-e $2$ színnel?
+
+                \item $\Pi_a$: Adott $G=(A,B,E)$ páros gráfban van-e $n$ méretű párosítás? \\
+                $\Pi_b$: Adott $(G, s, t, c)$ hálózatban van-e $k$ méretű folyam?
+            \end{enumerate}
+            \item Bizonyítsuk be, hogy az alábbi problémák $\P$-beliek:
+            \begin{enumerate}
+                \item Adott $G$ irányítatlan gráfról döntsük el, van-e benne kör.
+                \item Adott $G$ irányítatlan gráfról döntsük el, van-e olyan részgráfja, amiben minden fok $\geq k$.
+                \item Adott $G$ irányítatlan gráfról döntsük el, van-e $K_{10}$ részgráfja.
+                \item Adott $G$ öf gráfról és $c:E(G)\rightarrow \mathbb{R}^{+}$ élsúlyokról döntsük el, igaz-e, hogy $G$ bármely feszítőfájának a költsége legalább $k$.
+                \item 2-SAT.
+            \end{enumerate}
+            \item Bizonyítsuk be, hogy az alábbi problémák $\NP$-beliek:
+            \begin{enumerate}
+                \item Adott $G$ irányítatlan gráfról döntsük el, van-e $k$-reguláris részgráfja.
+                \item Adott $G$ öf gráfról és $c:E(G)\rightarrow\mathbb{R}^{+}$ élsúlyokról döntsük el, igaz-e, hogy $G$-nek van pontosan $k$ költségű feszítőfája.
+                \item Adott $G$ gráfról és $l:E(G)\rightarrow\mathbb{R}$ (esetleg negatív) élhosszokról döntsük el, igaz-e, hogy $G$ bármely két csúcsának a távolsága legfeljebb $k$.
+            \end{enumerate}
+            \item Bizonyítsuk be, hogy az alábbi problémák $\coNP$-beliek:
+            \begin{enumerate}
+                \item Adott $G$ gráfról döntsük el, hogy síkbarajzolható-e.
+                \item Adott $2n$ csúcsú $G$ gráfról döntsük el, igaz-e, hogy bármely $n$ csúcsa páros gráfot feszít.
+                \item Adott $G$ gráfról döntsük el, igaz-e, hogy $\omega(G)\leq k$.
+                \item Adott számról döntsük el, hogy prímhatvány-e.
+            \end{enumerate}
+            \item Mutassuk meg, hogy az alábbi problémák $\NP \cap \coNP$-beliek:
+            \begin{enumerate}
+                \item Adott $G$ gráfról döntsük el, hogy páros-e.
+                \item Adott $G$ gráfról döntsük el, hogy összefüggő-e.
+                \item Adott $G$ páros gráfról döntsük el, hogy van-e teljes párosítása.
+                \item Adott hálózatról döntsük el, van-e benne $k$ nagyságú folyam.
+                \item Adott $n$ és $k$ egészekről döntsük el, relatív prímek-e.
+            \end{enumerate}
+            \item \textbf{[ZH-2009]} Mi az alábbi probléma bonyolultsága? (Vagy bizonyítsa be, hogy polinom időben megoldható, vagy bizonyítsa be, hogy NP-teljes!)
+            
+            \textbf{Input:} $G$ egyszerű gráf és $v\in V(G)$\\
+            \textbf{Kérdés:} Van-e $G$-nek olyan feszítőfája, amelyben $v$ az egyetlen olyan pont, aminek a foka legalább $3$?
+
+            \item \textbf{[ZH-2008]} Bizonyítsuk be, hogy $\NP$-teljes az a $\pi$ döntési probléma, aminek a bemenete egy $100n$ pontú irányítatlan gráf, a kimenete pedig akkor ``igen", ha $G$-nek van legalább $n$ pontú köre. 
+            
+            \item \textbf{[ZH-2010]} Igazoljuk, hogy a $\P$ és $\NP$ problémaosztályba egyaránt beletartozik annak eldöntése, hogy egy inputként megadott $G$ irányítatlan gráfban létezik-e két különböző kör.
+            
+            \item \textbf{[PZH-2010]} Legyen a $\Pi$ döntési probléma inputja egy összefüggő $G$ gráf, az output pedig pontosan akkor ``igen'', ha van $G$-ben Euler-körséta. Mutassuk meg, hogy $\Pi\in\coNP$.
+            \item Mutassuk meg, hogy az alábbi problémák $\NP$-teljesek:
+            \begin{enumerate}
+                \item HAMÚT inputja egy $G$ gráf, outputja IGEN, ha $G$-nek van Hamilton-útja.
+                \item $k$-SZÍN inputja egy $G$ gráf és egy $k$ szám, outputja IGEN, ha $G$ $k$-színezhető, azaz $\chi(G)\leq k$.
+                \item RÉSZGR inputja egy $G$ és $H$ gráf, outputja IGEN, ha $G$-nek van $H$-val izomorf részgráfja.
+                \item MAXFGTLN inputja egy $G$ gráf és egy $k$ szám, outputja IGEN, ha van a gráfban $k$ egymástól független csúcs.
+                \item FÉLHAM inputja egy $G$ gráf, outputja IGEN, ha $G$-nek van olyan köre, ami $G$ csúcsainak legalább felét tartalmazza.
+                \item FELE-3-SZÍN inputja egy $G$ gráf, outputja IGEN, ha $G$-nek van olyan $3$-színezhető feszített részgráfja, amely $G$ csúcsainak legalább felét tartalmazza.
+                \item MAXTÁV inputja egy $G=(V,E)$ gráf, egy $l:E\rightarrow \mathbb{R}_{+}$ hosszfüggvény valamint egy $k\in \mathbb{R}_{+}$ szám. Az output akkor IGEN, ha $G$-ben van legalább $k$ összhosszú út.
+                \item TÉLAPÓ inputja a jó gyerekek házainak a koordinátái, az output pedig IGEN, ha a télapó meg tudja mindegyiket látogatni pontosan egyszer, legfeljebb $k$ hosszú úton.
+                \item KARÁCSONYFA inputja egy karácsonyfa és rajta $n$ darab gömb alakú dísz. Outputja IGEN, ha körbe lehet tekerni a fát egy $k$ hosszú boa dísszel úgy, hogy minden gömbdíszt pontosan egyszer érintsen\footnote{Forrás: http://abstrusegoose.com/330}.
+            \end{enumerate}
+        \end{enumerate}
+    \end{document}
