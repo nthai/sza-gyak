@@ -1,0 +1,95 @@
+\documentclass[a4paper, 12pt]{article}
+    
+    \usepackage[top=1.5cm,bottom=1.5cm,left=0.5cm,right=1cm]{geometry}
+    
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usepackage{alphalph}
+    
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{amsmath}
+    \usepackage{multicol}
+    
+    \begin{document}
+        \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2020. I. félév}
+        \noindent\makebox[\textwidth][c]{\Large 11. gyakorlat}
+        
+        \begin{enumerate}
+            \item Mely $p$ prím(ek)re lesz (a) $p+10$ és $p+14$ prím? (b) $p^2 + 2$ prím? (c) $p^2 + 4$ és $p^2 + 6$ prím?
+            \item Számítsuk ki a $(372, 504)$ illetve $(612, 834)$ legnagyobb közös osztókat.
+            \item Oldogassunk lineáris kongruenciákat:
+            \begin{multicols}{3}			
+                \begin{enumerate}
+                    \item $47x \equiv 44 \ (54)$
+                    \item $202 x \equiv 157 \ (203)$
+                    \item $309 x \equiv 451 \ (617)$
+                    \item $5x \equiv 13 \ (137)$
+                    \item $113x \equiv 77 \ (120)$
+                    \item $11x \equiv 12 \ (18)$
+                    \item $14x - 4 \equiv 80 \ (21)$
+                    \item \textbf{[ZH-2015]} $31x \equiv 13 (131)$
+                    \item \textbf{[ZH-2016]} $42x \equiv 33 (51)$
+                \end{enumerate}
+            \end{multicols}
+
+            \hrule
+
+            
+            \item \textbf{[ZH-2016]} $100$ villamosmérnök-hallgató jár SzA előadásra. Közülük azok a hallgatók, akiknek pzh-t kell írniuk, az előadás végén bedobnak fejenként $42$ db egyforintost egy kalapba. Az így összegyűjtött pénzt a tankörvezető $128$ forintonként rollnikba csomagolja, amiket majd kisorsolnak a diplomaosztón. Végül éppen $100$ forint maradt rollnizatlan. Hány hallgatónak kell pzt-h írnia? (A feladatbeli szereplők kitalált személyek: bárminemű hasonlóság a valósággal puszta véletlen.)
+            \item \textbf{[ZH-2015]} Ura születésnapjára Tűzvirág egy $77$ gyönggyel díszített, mangalicabőr tokot varrt Vérbul-csú ivótülkéhez. Annyira elégedett volt az eredménnyel, hogy Vérbulcsú hagyományőrző dorombegyüttesének minden tagját is ugyanilyen tokkal lepte meg, hogy jól mutasson a csapat a tarsolylemezek mellett csüngő tülkökkel amikor fellépnek Dobogókőn a táltosünnep $50$ személyes központi jurtájában. Mivel a kínai boltban százasával árulják a gyöngyöket, $7$ gyöngy kimarad, melyekkel Tűzvirág a hétköznapi pártáját ékesítette. Hányan dorombolnak Vérbulcsú zenekarában?
+
+            \item Számítsuk ki a $\varphi(533)$, $\varphi(2016)$, $\varphi(2017)$ és $\varphi(540)$ értékeket.
+
+            \item Oldogassunk lineáris kongruenciákat:
+            \begin{multicols}{3}			
+                \begin{enumerate}
+                    \item $49^{49} \equiv 3 \ (15)$
+                    \item $3^{80} x \equiv 23 \ (100)$
+                    \item $4^{444} x \equiv 214 \ (363)$
+                \end{enumerate}
+            \end{multicols}
+
+            \hrule
+
+            \item Igazoljuk, hogy bármely hat egymást követő egész szám szorzata osztható $720$-szal.
+            \item Hány olyan pozitív egész szám van, ami az $n = 2^3 \cdot 7^5 \cdot 11^2$ és $m=2^5\cdot 5^3 \cdot 7 \cdot 13$ számok közül legalább egynek osztója?
+            \item Bővítsük ki az egész számok halmazát a $\sqrt{5}$-tel (és annak többszöröseivel). Bizonyítsuk be, hogy az így kapott algebrai struktúrában (gyűrűben) a $2$ felbonthatatlan, de nem prím!
+            \item Legyen $F_0 = 0$, $F_1 = 1$, és $n \geq 2$ esetén az $n$-edik Fibonacci szám $F_n = F_{n-1} + F_{n-2}$. Igazoljuk, hogy $F_n$ és $F_{n+1}$ relatív prímek.
+            \item Igazoljuk, hogy tetszőleges $n$ szám $9$-es osztási maradéka megegyezik a $10$-es számrendszerben felírt alakjában szereplő számjegyei összegének $9$-es maradékával.
+            \item Mi a $8$-as oszthatósági szabály $9$-es számrendszerben?
+            \item \textbf{[ZH-1999]} Relatív prímek-e a $2^{100}-1$ és a $3^{100}-1$ számok?
+            \item \textbf{[ZH-2015]} Határozzuk meg az $n=\binom{12}{6}$ pozitív osztóinak számát!
+            \item \textbf{[ZH-2014]} Hány pozitív osztója van $10!$-nak?
+            \item \textbf{[PZH-2015]} Melyik az a legnagyobb $m$ modulus, amelyre a $42x\equiv 2015 \ (m)$ lineáris kongruenciának megoldása az $x=3$?
+            \item Egy $n$ egész szám $45$-szöröse $21$ maradékot ad $78$-cal osztva. Milyen maradékokat adhat $n$ $130$-cal osztva?
+            \item Öröm és boldogság: ma van Dzsenifer születésnapja. Ezért matek és földrajz
+            helyett Britnivel, a barátnőjével plázába mentek okostelefont
+            nézni. Kipróbálták a legújabb, facebookon agyonlájkolt, minden eddiginél
+            okosabb születésnapi appot és megállapították, hogy Dzsenifernek
+            feltétlenül vennie kell egy rózsaszín szelfibotot a jóképű eladótól,
+            ugyanis ma (2015-ben) az életkora osztója
+            az aktuális évszámnak. Márpedig az app szerint ilyenkor különösen sok
+            szerencse éri a horoszkópokban kellőképpen jártas beavatottakat. Meg
+            tudjuk-e mondani a fizetős appra történő regisztráció nélkül, hogy legutóbb
+            mikor történt ez meg és hogy legközelebb mikor fog ismét bekövetkezni
+            Dzsenifer életében ez a csodálatos, születésnapi konstelláció?
+            \item Dzsúlió már régóta gyűjt nagy álmára, hogy volt barátnője, Vanessza
+            mobiltelefonon őrzőtt arcképét a bicepszére tetováltassa. Legjobb barátja,
+            Rodzser tanácsára, míg össze nem jön az ehhez szükséges 35000 forint,
+            átváltja az ezer forintosokban tartott megtakarítását euróra, amit a
+            Rodzser által ajánlott Rikárdótól (az ismeretségre tekintettel)
+            szuperkedvezményes 330 Ft-os árfolyamon vesz meg. Miután Rikárdó centekkel
+            nem foglalkozik, Dzsúliónak éppen 140 Ft marad a megtakarításából, amiből
+            Rodzserrel közösen lottószelvényt vesznek azzal, hogy a nyereményt majd
+            felezik. Hány euró boldog birtokosának mondhatja magát Dzsúlió a sikeres
+            tranzakció után?
+            
+        \end{enumerate}
+    
+    \end{document}
