@@ -20,8 +20,8 @@
 \usepackage{amsmath}
 
 \begin{document}
-    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2020. I. félév}
-    \noindent\makebox[\textwidth][c]{\Large 5. gyakorlat}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2021. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large 3. gyakorlat}
     \begin{enumerate}
         \item Indítsunk BFS-t az alábbi gráfok súlyozatlan változatának az $s$ pontjaiból! Határozzuk meg a legrövidebb utakat az alábbi súlyozott gráfokban az $s$ és a $t$ csúcs között!
         \begin{figure}[!h]
@@ -116,6 +116,10 @@
             \end{subfigure}
         \end{figure}
 
+        \item Hogyan lehet a BFS algoritmust felhasználni adott $r$ gyökér esetén az összes $dist_l(r, v)$ távolság meghatározására, ha minden $l(e)$ élhossz egész szám?
+        
+        Tervezzünk csavaranyákból és cukorspárgából gravitációs elven működő mechanikus számítógépet, ami alkalmas az inputként megadott, nemnegatív élhosszokkal rendelkező irányítatlan gráf tetszőleges gyökérpontjából a többi csúcs távolságának a meghatározására.
+
         \hrule
 
         \item \textbf{[PZH-2014]} Az alábbi bal oldali ábrán látható valamely $G$ gráf egy szélességi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ szomszédosak $G$-ben?
@@ -131,9 +135,9 @@
 
         \item \textbf{[PZH-2010]} Adott egy $G$ gráf, az $e$ él hosszát jelölje $l(e)$. Minden él hosszát növeljük meg $2$-vel, azaz legyen $l'(e)=l(e)+2$ minden élre. Tegyük fel, hogy $u$ és $v$ között $P$ egy legrövidebb út az $l'$ élhosszokkal. Igaz-e, hogy $P$ biztosan egy legrövidebb út $u$ és $v$ között az $l$ élhosszokra nézve is?
         
-        \item \textbf{[ZH-2014 alapján]} Legyenek a $7$ csúcsú $G$ gráf pontjai $v_1$, $v_2$, $v_3$, $v_4$, $v_6$, $v_8$ és $v_9$, valamint akkor legyen $v_i$ és $v_j$ szomszédos, ha $i$ és $j$ relatív prímek. Ekkor a $v_iv_j$ él hosszúsága $|i-j|$. Határozzuk meg a $v_1$ csúcsból minden más csúcsba egy-egy legrövidebb utat.
+        % \item \textbf{[ZH-2014 alapján]} Legyenek a $7$ csúcsú $G$ gráf pontjai $v_1$, $v_2$, $v_3$, $v_4$, $v_6$, $v_8$ és $v_9$, valamint akkor legyen $v_i$ és $v_j$ szomszédos, ha $i$ és $j$ relatív prímek. Ekkor a $v_iv_j$ él hosszúsága $|i-j|$. Határozzuk meg a $v_1$ csúcsból minden más csúcsba egy-egy legrövidebb utat.
         
-        \item \textbf{[PZH-2014]} Legyen $V(G) = \{v_3, v_4, \ldots, v_{10}\}$, és $v_iv_j \in E(G)$, ha $i$ és $j$ nem relatív prímek, azaz van $1$-nél nagyobb közös osztójuk. Legyen a $v_iv_j$ él hossza $\min(i,j) - 1$. Határozzuk meg a $v_5$ csúcsból minden más csúcsba egy-egy legrövidebb utat, ha van. 
+        % \item \textbf{[PZH-2014]} Legyen $V(G) = \{v_3, v_4, \ldots, v_{10}\}$, és $v_iv_j \in E(G)$, ha $i$ és $j$ nem relatív prímek, azaz van $1$-nél nagyobb közös osztójuk. Legyen a $v_iv_j$ él hossza $\min(i,j) - 1$. Határozzuk meg a $v_5$ csúcsból minden más csúcsba egy-egy legrövidebb utat, ha van. 
         
         \item \textbf{[ZH-2008]} Határozzuk meg a lenti bal oldali gráfban az élsúlyokat úgy, hogy a Dijkstra algoritmus rossz eredményt adjon!
         \begin{figure}[h]
