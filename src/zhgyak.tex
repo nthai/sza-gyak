@@ -1,0 +1,90 @@
+\documentclass[a4paper, 12pt]{article}
+    
+    \usepackage[top=2.5cm,bottom=1.5cm,left=1cm,right=1cm]{geometry}
+    
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usepackage{alphalph}
+    
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{amsmath}
+    
+\begin{document}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2021. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large 7. gyakorlat}
+
+    \noindent\centering\parbox[c][5em][c]{0.8\textwidth}{\centering ZH gyakorlás: Leszámlálások. Gráfelméleti alapok, fák. Kruskal algoritmus, BFS. Dijkstra, Ford és Floyd; legrövidebb és legszélesebb utak. DFS, DAG, PERT. Euler-, Hamilton-utak és körök; Dirac és Ore tételei. \\ + minden ami volt előadáson/gyakorlaton.}
+
+    \begin{enumerate}
+        \item \textbf{[ZH-2006]} Hányféleképp osztható ki $100$ hallgatónak $57$ különböző könyv és $69$ egyforma alma, ha egy hallgató akárhány (esetleg $0$) könyvet és akárhány (esetleg 0) almát is kaphat?
+        \item \textbf{[ZH-2007]} Van-e olyan $1000$ pontú gráf, melynek pontosan $13$ feszítőfája van? (Feltehetjük, hogy a gráf pontjai meg vannak számozva, és két feszítőfát különbözőnek tekintünk, ha az egyikben össze van kötve valamely két pont, ami a másikban nincs.)
+        \item \textbf{[ZH-2015]} Az ábrán látható $G=(V,E)$ gráf élei a felújítandó útszakaszokat jelentik. Minden élén két költség van: az olcsóbbik az egyszerű felújítás költsége, a drágább pedig ugyanez, kerékpárút építéssel. A cél az összes útszakasz felújítása úgy, hogy összefüggő kerékpárút-hálózat épüljön ki, amelyen $G$ minden pontja elérhető. Határozzuk meg egy lehető legolcsóbb felújítási tervet, ami teljesíti a feltételt.
+        \begin{figure}[!ht]
+            \centering
+            \includestandalone{../grafok/minfesz3}
+        \end{figure}
+        \item Határozzuk meg a mellékelt (bal oldali) PERT-diagramban az összidőt és a kritikus tevékenységeket $x>0$ függvényében! 
+        \begin{figure}[!ht]
+            \centering
+            \includestandalone{../grafok/pert4} \hspace{1in}
+            \includestandalone{../grafok/hamilton_zh2007}
+        \end{figure}
+        \item \textbf{[ZH-2020]} Tegyük fel, hogy ha az élsúlyokkal ellátott $G$ gráfban az $e$ él költségét $11$-nek, ill. $77$-nek választjuk, akkor a minimális költségű feszítőfa költsége $1956$ ill. $1989$ lesz. Mennyi a minimális költségű feszítőfa költsége akkor, ha az $e$ él költsége $42$?
+        \item \textbf{[ZH-2007]} Bizonyítsuk be, hogy a fenti jobb oldali gráfban nincs Hamilton-kör! Ha behúzzuk az $X$ és $Y$ közötti élet is a gráfba, akkor lesz Hamilton-kör?
+        \item \textbf{[ZH-2007]} Egy $2007$ pontú összefüggő, egyszerű gráf minden pontja $100$-adfokú. Bizonyítsa be, hogy élhalmaza felbontható $2007$ darab éldiszjunkt $50$ élű csillag egyesítésére!
+        \hrule
+        \item \textbf{[ZH-2015]} Hányféleképpen lehet $5$ házaspárt leültetni egy $10$ székből álló széksorba, ha a házastár-saknak egymás mellé kell ülniük? Mi a válasz $13$ székre?
+        \item \textbf{[ZH-2013]} Egy BME hallgató Neptun-kódja egy olyan, $6$ karakterből álló sorozat, amelynek minden tagja az angol abc $26$ betűjének egyike, vagy a $0, 1, \ldots, 9$ számjegyek valamelyike. Hány olyan lehetséges Neptun-kód van, melyben pontosan két betű és $4$ számjegy szerepel?
+        \item \textbf{[PZH-2013]} Egy bolha egységnyi lépéseket tesz meg a számegyenesen pozitív vagy negatív irányban. Hányféleképpen juthat el az origóból $100$ lépéssel a $68$ pontba?
+        \item \textbf{[PZH-2013]} A hét törpe minden este más sorrendben szeretne sorba állni, amikor Hófehérke a vacsorát osztja. Hányféleképp tehetik ezt meg, ha Morgó nem lehet az utolsó és Kuka közvetlenül Vidor mögött akar állni?
+        \item \textbf{[ZH-2015]} Hányféleképpen ültethető le egy kör alakú asztal köré $5$ házaspár, ha a házastársak egymás mellett akarnak ülni? \textit{(Két ültetést akkor tekintünk azonosnak, ha mindenkinek ugyanaz a baloldali szomszédja a két esetben.)}
+        \item \textbf{[PZH-2015]} Az ébredő erő bemutatóját $7$ mikulás nézi meg a krampuszával. Úgy szeretnének leülni egy $14$ székből álló sorba, hogy ne üljön minden mikulás a saját krampusza mellett. Hányféleképpen tehetik ezt meg? (A $7$ mikulás és a $7$ krampusz is egymástól jól megkülönböztethető.)
+        \item \textbf{[ZH-2014]} Hányféleképpen lehet sorba rakni az $1,2,\ldots,10$ számokat úgy, hogy a sorozat valahányadik eleméig monoton növekvő, onnantól pedig monoton csökkenő legyen? (a két részsorozat határa akár a sorozat első vagy utolsó eleme is lehet.)
+        \item \textbf{[PZH-2014]} A *****-XXXXX focimeccs végeredménye $6\ :\ 3$ lett XXXXX csapatának javára. Hányféleképpen születhetett meg ez az eredmény, azaz hányféle lehetett az egyes gólok utáni állások sorrendje?
+        \item \textbf{[ZH-2011]} A Mikulás öt pendrive-ot hozott, amik egyenként $1,3,5,7$ és $9$ gigabájtosak. Öcsénkkel kell ezeken megosztoznunk. Hányféleképp tehetjük ezt meg, ha a mi memóriánk kapacitásainak összegének testvérünkéiéiénél mindenképpen nagyobbnak kell lennie, és tökéletesen igazságosnak érezzük azt is, ha az összes eszköz nekünk jut?
+        \item \textbf{[ZH-2005]} Az $\{1,2,\ldots,100\}$ számokat hányféleképpen lehet három $20$-elemű, két $15$-elemű és egy $10$-elemű halmazba szétosztani?
+        \item \textbf{[ZH-2005]} Legyen $G=(V,E)$ az a gráf, melyre $V=\{1,2,\ldots,100\}$, és $ab \in E$ pontosan akkor, ha $a \neq b$ és $a-b$ osztható $4$-gyel. Van-e a $G$ gráfnak Euler-köre?
+        \item \textbf{[ZH-2005]} $10$ házaspár mindegyik tagjára igaz, hogy a maradék $9$ házaspár mindegyikének legalább egyik tagját ismeri. (Az ismeretség kölcsönös.) Bizonyítsuk be, hogy az említett $20$ személy leültethető egy $20$ személyes, kör alakú asztalhoz úgy, hogy mindenki ismerje a két mellette ülő személy mindegyikét.
+        \item \textbf{[ZH-2012]} A ruletten egy pörgetés eredménye egy $0$ és $36$ közötti egész szám (a határokat megengedve). Hányféle olyan $10$ pörgetésből álló sorozat lehetséges, ami tartalmaz két azonos eredményű pörgetést?
+        \item \textbf{[ZH-2015]} Tegyük fel, hogy a $G$ egyszerű gráfnak $100$ csúcsa van, melyek bármelyikének a fokszáma legalább $33$, továbbá $G$-nek van olyan csúcsa, melyből legalább $66$ él indul. Bizonyítsuk be, hogy $G$ összefüggő.
+        \item \textbf{[PZH-2013]} Egy $2013$ pontú egyszerű gráfban minden pont foka legalább $671$. Mutassuk meg, hogy a gráf vagy összefüggő, vagy egyetlen él hozzáadásával azzá tehető.
+        \item \textbf{[PZH-2015]} Igazoljuk, hogy ha $v$ egy véges $G$ gráf páratlan fokú csúcsa, akkor $G$-ben van olyan út, amely $v$-t a $G$ egy másik páratlan fokú csúcsával köti össze.
+        \item \textbf{[PZH-2014]} Tudjuk, hogy a $6$ pontú gráf fokszámai $2,2,2,4,5,5$. Igazoljuk, hogy $G$ nem egyszerű.
+        \item \textbf{[PPZH-2012]} Határozzuk meg, hogy a $K_n$ teljes gráfnak hány $C_4$ részgráfja van. (Két részgráf akkor nem különbözik, ha a csúcshalmazaik is \textbf{és} élhalmazaik is megegyeznek. A $C_4$ gráf a $4$ pontú kör.)
+        \item \textbf{[PZH-2015]} Tegyük fel, hogy a $K_{2015}$ teljes gráf minden egyes élét kiszíneztük $1008$ lehetséges szín valamelyikére. Bizonyítsuk be, hogy található a gráfnak egy $u$ és egy $v$ pontja valamint egy $c$ szín úgy, hogy ne vezessen $u$-ból $v$-be olyan út amelynek minden éle $c$ színű.
+        \item \textbf{[PZH-2013]} Az $n$ pontú egyszerű, összefüggő, pozitív élsúlyokkal rendelkező $G$ gráfban a minimális feszítőfa összsúlya $s$. $G$-ben minden él súlyához hozzáadunk $2$-t, így kapjuk a $G'$ gráfot. Mekkora lesz a minimális feszítőfa súlya $G'$-ben?
+        \item \textbf{[PZH-2015]} Az alábbi ábrán látható $G$ gráf éleire írt számok az adott él szélességét jelentik. Ha van, találjuk meg $G$-nek egy olyan $F$ feszítőfáját, amelyben az $F$-beli $uv$ út a $G$ egy legszélesebb $uv$ útja a $G$ tetszőleges $u$, $v$ csúcsaira. Határozzuk meg $f$ és $h$ között a legszélesebb út szélességét.
+        \begin{figure}[!ht]
+            \centering
+            \includestandalone{../grafok/dijkstra4}
+        \end{figure}
+        
+        \item \textbf{[ZH-2014]} Legyenek a $7$ csúcs $G$ gráf pontjai $v_1,v_2,v_3,v_4,v_6,v_8$ és $v_9$, valamint akkor legyen $v_i$ és $v_j$ szomszédos, ha $i$ és $j$ relatív prímek. Ekkor a $v_iv_j$ él szélessége $|i-j|$. Határozzuk meg a $v_1$ csúcsból minden más csúcsba egy-egy legszélesebb utat.
+        \item \textbf{[PZH-2012]} Az ábrán látható gráfon a Dijkstra algoritmus segítségével állapítsuk meg, hogy milyen sorrendben határozza meg az algoritmus a $dist(s,v)$ távolságokat (azaz milyen sorrendben kerülnek véglegesítésre a csúcsok $s$-től mért távolságai).
+        \begin{figure}[!ht]
+            \centering
+            \includestandalone{../grafok/dijkstra_2012pzh}
+        \end{figure}
+        \item \textbf{[ZH-2015]} Van-e valamely $n\geq 2$ egész esetén olyan $2n$ pontú $G$ gráf, hogy $G$-nek is és komplementerének, $\bar{G}$-nek is van Euler sétája?
+        
+        \item \textbf{[ZH-2014]} Tegyük fel, hogy a $G$ gráf bármely két csúcsa között vezet legfeljebb $7$ élű út. Mutassuk meg, hogy ha $G$-nek van Euler sétája, akkor $G$-nek megduplázható legfeljebb $7$ éle úgy, hogy az így kapott $G'$ gráfnak Euler körsétája legyen. (Egy $e$ él megduplázásán azt értjük, hogy behúzunk egy, az $e$ éllel párhuzamos új élt.)
+        
+        \item \textbf{[PZH-2014]} Igazoljuk, hogy ha egy egyszerű $G$ gráfnak $20$ csúcsa van és bármely fokszáma legalább $12$, akkor $G$-nek van két olyan Hamilton köre, melyeknek nincs közös éle.
+        
+        \item Egy irányított gráf csúcshalmaza $\{A,B,C,D,E,F\}$, az élek és súlyaik pedig az alábbiak: $s(A,B) = 2$, $s(A,C) = 7$, $s(A,D) = 3$, $s(A,F) = 6$, $s(C,E) = 3$, $s(D,B) = -2$, $s(D,C) = -4$, $s(D,E) = -2$, $s(E,F) = 4$. Futtassa ezen a gráfon a Bellman-Ford algoritmust az $A$ csúcsból vett legrövidebb utak hosszának meghatározására!
+        \item \textbf{[ZH-2008]} Tegyük fel, hogy az $n$ csúcsú irányítatlan $G$ gráf bármelyik csúcsából $G$-nek legfeljebb $\frac{n-2}{2}$ másik csúcsába lehet úton eljutni. Igazoljuk, hogy a $\bar{G}$ komplementergráfnak van Hamilton-köre!
+        \item \textbf{[PZH-2008]} Legfeljebb hány pontja lehet annak a $19$ élű $G$ gráfnak, amiben minden pont fokszáma legalább $3$?
+        \item \textbf{[ZH-2007]} Határozzuk meg a legrövidebb út hosszát az $s$ pontból az összes többi pontba Dijkstra-algoritmus segítségével az alábbi gráfban! Milyen sorrendben kerültek át a pontok az $S$ halmazból a $T$ halmazba?
+        \begin{figure}[!ht]
+            \centering
+            \includestandalone{../grafok/dijkstra_2007zh}
+        \end{figure}
+        
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[top=1.5cm, bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+\usepackage{graphicx}
+    \usepackage{t1enc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{multicol}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{arrows.meta}
+    \usetikzlibrary{patterns}
+
+    \usepackage{hyperref}
+
+\begin{document}
+
+\section*{1. gyakorlat}
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item valamilyen
+    
+    \setcounter{enumi}{10}
+    \item valami
+\end{enumerate}
+
+\section*{5. gyakorlat}
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Ha körbeállnak a politikusok, akkor Hamilton kört fognak alkotni. Két politikus akkor legyen összekötve, ha ismerik, de nem utálják egymást. Ekkor minden csúcs foka legalább $111$. Dirac-tétel miatt így van Hamilton kör.
+    \item Mivel $G_1$-ben és $G_2$-ben van Euler-kör, ezért a fokszámok párosak. $G_3$-at úgy kapjuk, hogy egyesítjük a $G_1$ és $G_2$ éleit, majd kitöröljük azokat az éleket, amik mindkét élhalmazban benne van. Így minden csúcs fokszáma csak páros értékekkel módosul. Ezért az új gráfban is párosak a fokszámok. Mivel a feladat azt írja, hogy a gráf öf., ezért van benne Euler-kör.
+    \item $8$ darab $3$ fokú csúcsunk van. Egy úttal legfeljebb két csúcs fokszámának tudjuk megváltoztatni  a paritását. Tehát legalább $4$ út kell majd és ez elég is. Ha vannak testátlók, akor minden csúcs foka páros, lesz Euler-kör és elég lesz $1$ drótdarab.
+    \item A feladat állítása szerint négy színünk van, és mindegyik csúcsból ugyanannyi él indul ki az adott szín fajtából. Minden csúcsból kimegy $15$ él. Pl. a négy szín piros, kék, sárga, zöld. Ekkor mondjuk így nézhetnek ki a színek minden csúcsra: $4$ piros, $5$ kék, $5$ sárga, $1$ zöld színű. Ekkor válasszuk azt a két színt, amelyek a két legnagyobb fokszámhoz tartozik. Ez a két érték együtt meghaladja a csúcsok számának felét, így a Dirac-tétel miatt lesz Hamilton kör.
+    \item Ha $G$-ben egy $v$ csúcs foka $d(v)$, akkor $\bar{G}$-ben $98-d(v)$. Mivel $G$-ben minden csúcs foka páros, ezért $\bar{G}$-ben is. Már csak azt kell bizonyítani, hogy összefüggő a gráf. Ez azért igaz, mert $\bar{G}$-ben minden csúcs foka legalább $68$, ami nagyobb, mint $n/2$, azaz van a gráfban Hamilton kör, tehát a gráf összefüggő.
+    \item A $G$ gráf élein úgy tudunk végigmenni, hogy először végigmegyünk a $G-C$ körön, utána a $C$ körön, így minden élt egyszer érintettünk.
+    \item Ha $u$ és $v$ nincs összekötve, akkor kössük össze őket. Ekkor Ore-tétel miatt van benne Hamilton kör. Ezután szedjük ki az $uv$ élt. Ha a Hamilton kör az $uv$ élen ment át, akkor maradt egy Hamilton utunk. Ha nem, akkor van egy Hamilton körünk, ami még jobb.
+    \item Vegyünk egy csúcsot. Ekkor rajta kívül még van $n-1$ darab csúcs a gráfban. Ezek közül legfeljebb $\frac{n-2}{2}$ csúccsal van összekötve. Ekkor legalább $n-1-\frac{n-2}{2}=\frac{n}{2}$ csúccsal nincs összekötve. Azaz ezek a komplementergráfban élek lesznek, és a Dirac-tétel miatt lesz bennük Hamilton kör.
+    \setcounter{enumi}{12}
+    \item \url{https://codeforces.com/blog/entry/16048}
+\end{enumerate}
+
+\end{document}
