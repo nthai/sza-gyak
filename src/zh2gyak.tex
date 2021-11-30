@@ -1,0 +1,61 @@
+\documentclass[a4paper, 12pt]{article}
+    
+    \usepackage[top=2.5cm,bottom=1.5cm,left=1cm,right=1cm]{geometry}
+    
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{arrows.meta}
+    \usepackage{alphalph}
+    
+    \usepackage{caption}
+    \usepackage{subcaption}
+    \usepackage{amsmath}
+    
+\begin{document}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2021. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large 12. gyakorlat}
+    \begin{enumerate}
+        \item \textbf{[ZH-2019]} Határozzunk meg az ábrán látható hálózatban egy maximális nagyságú $st$ folyamot és igazoljuk a talált folyam maximalitását!
+        \begin{figure}[ht]
+            \centering
+            \includestandalone{../grafok/folyamzh2019}
+        \end{figure}
+
+        \begin{minipage}{0.5\textwidth}
+            \item \textbf{[ZH-2019]} Határozzuk meg a jobb oldali ábrán látható $G$ gráfra az $x=\nu(G)\cdot\alpha(G)\cdot(\tau(G) + \rho(G))$ kifejezés értékét. ($\nu$: ftn. élek, $\alpha$: ftn. pontok, $\tau$: lef pontok, $\rho$: lef élek.)
+            \item \textbf{[ZH-2019]} Síkbarajzolható-e a jobb oldali ábrán látható gráf?
+        \end{minipage}
+        \begin{minipage}{0.4\textwidth}
+            \centering
+            \includestandalone{../grafok/paramgrafzh2019}
+        \end{minipage}
+        \item \textbf{[ZH-2019]} A $G$ páros gráf színosztályai $A$ és $B$. Tegyük fel, hogy a $G$ élei pirosra és zöldre vannak színezve, továbbá, hogy a piros élek gráfjában $A$-ra, a zöld élek gráfjában pedig $B$-re teljesül a Hall-feltétel. Igazoljuk, hogy $G$-nek van olyan $H$ feszítő részgráfja, aminek minden komponense egy piros és zöld éleket felváltva tartalmazó kör.
+        \item \textbf{[ZH-2019]} Hány olyan pozitív egész szám van, ami az $n=2^2\cdot3^3\cdot7^2$ és $m=3^2\cdot5^2\cdot7$ egész számok közül pontosan egynek osztója?
+        \item \textbf{[ZH-2019]} $G$ gráf csúcsait diszjunkt $A$ és $B$ halmazok alkotják. Tegyük fel, hogy minden $A$-beli csúcs pontosan $9$ $A$-beli és $42$ $B$-beli csúccsal, míg minden $B$-beli csúcs pontosan $20$ $A$-beli és $10$ $B$-beli csúccsal szomszédos. Bizonyítsuk be, hogy $G$ csúcsainak mohó színezéséhez a csúcsok bármely sorrendje esetén kevesebb, mint $42$ szín kell.
+
+        \item \textbf{[PZH-2019]} Maximális nagyságú-e a lenti ábrán látható $st$-folyam? Ha nem, akkor határozzuk meg egy maximális nagyságú $st$-folyam nagyságát.
+        \begin{figure}[ht]
+            \centering
+            \includestandalone{../grafok/folyampzh2019}
+        \end{figure}
+
+        \begin{minipage}{0.6\textwidth}
+            \item \textbf{[PZH-2019]} Állapítsuk meg a jobb oldali ábrán látható $G$ gráf $\nu(G)$, $\rho(G)$, $\alpha(G)$, ill. $\tau(G)$ paramétereit. ($\nu$: ftn. élek, $\alpha$: ftn. pontok, $\tau$: lef pontok, $\rho$: lef élek.)
+            \item \textbf{[PZH-2019]} Állapítsuk meg, hány szín kell a jobb oldali ábrán látható $G$ gráf $a$, $b$, $c$, $d$, $e$, $f$, $g$, $h$ sorrendben történő mohó színezéséhez. Milyen színt kap ekkor a $h$ csúcs?
+            \item \textbf{[PZH-2019]} Síkbarajzolható-e a jobb oldali ábrán látható $G$ gráf?
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includestandalone{../grafok/paramgrafpzh2019}
+        \end{minipage}
+        \item \textbf{[PZH-2019]} Legalább hány pozitív osztója van az $n$ pozitív egésznek, ha $n^2$-nek pontosan $143$ pozitív osztója van?
+        \item \textbf{[PZH-2019]} Tegyük fel, hogy a $G$ páros gráf minden $A$ színosztálybeli csúcsának foksázma $6$, míg minden $B$ színosztálybelié $4$. Határozzuk meg a $G$-beli független élek maximális számát, $\nu(G)$-t, ha $B$ színosztály $63$ csúcsból áll.
+        \item \textbf{[ZH-2018]} Milyen maradékot ad $33$-mal osztva az $x$ egész szám, ha $12$ az $x$ $5$-szörösének $33$-as osztási maradéka?
+        \item \textbf{[PZH-2018]} Hány olyan $m>1$ egész szám létezik, amelyre a $7x\equiv 7(m)$ kongruenciának megoldása az $x=7$?
+    \end{enumerate}
+\end{document}
