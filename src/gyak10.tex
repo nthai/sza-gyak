@@ -17,24 +17,24 @@
     \usepackage{amsmath}
     
     \begin{document}
-        \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2020. I. félév}
+        \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2021. I. félév}
         \noindent\makebox[\textwidth][c]{\Large 10. gyakorlat}
         
         % \noindent\centering\parbox[c][5em][c]{0.8\textwidth}{\centering Páros gráfok, párosítások, Hall-tétel, Algoritmus maximális párosítás keresésére páros gráfban. Független/lefogó pont-/élhalmazok, Kőnig és Gallai tételei.}
         
         \begin{enumerate}
-            \item Keressünk az alábbi páros gráfokban maximális párosítást az alternáló utas algoritmus segítségével.
-            \begin{figure}[!ht]
-                \centering
-                \begin{subfigure}{0.48\textwidth}
-                    \centering
-                    \includestandalone[scale=1.2]{../grafok/maxpar1}
-                \end{subfigure}
-                \begin{subfigure}{0.48\textwidth}
-                    \centering
-                    \includestandalone[scale=1.2]{../grafok/maxpar4}
-                \end{subfigure}
-            \end{figure}
+            % \item Keressünk az alábbi páros gráfokban maximális párosítást az alternáló utas algoritmus segítségével.
+            % \begin{figure}[!ht]
+            %     \centering
+            %     \begin{subfigure}{0.48\textwidth}
+            %         \centering
+            %         \includestandalone[scale=1.2]{../grafok/maxpar1}
+            %     \end{subfigure}
+            %     \begin{subfigure}{0.48\textwidth}
+            %         \centering
+            %         \includestandalone[scale=1.2]{../grafok/maxpar4}
+            %     \end{subfigure}
+            % \end{figure}
             \item Síkbarajzolhatóak-e az alábbi gráfok?
             \begin{figure}[!ht]
                 \centering
@@ -46,24 +46,8 @@
                 \includestandalone{../grafok/sik6}
             \end{figure}
             \item Egy konvex test minden lapja négyszög vagy nyolcszög és minden pontban pontosan $3$ lap találkozik. Mennyi a négyszög- és nyolcszöglapok számának különbsége?
-            \item Egy kiránduláson $n$ házaspár vesz részt, és közöttük kellene elosztani $2n$ különböző csokoládét úgy, hogy mindenki egyet kapjon. Tudjuk, hogy minden részvevő legalább $n$ fajtát szeret a $2n$-féle csokoládé közül, és az is teljesül, hogy minden csokoládét szereti minden házaspárnak legalább az egyik tagja. Bizonyítsuk be, hogy ekkor kioszthatók úgy a csokoládék, hogy mindenki olyat kapjon, amit szeret.
+            % \item Egy kiránduláson $n$ házaspár vesz részt, és közöttük kellene elosztani $2n$ különböző csokoládét úgy, hogy mindenki egyet kapjon. Tudjuk, hogy minden részvevő legalább $n$ fajtát szeret a $2n$-féle csokoládé közül, és az is teljesül, hogy minden csokoládét szereti minden házaspárnak legalább az egyik tagja. Bizonyítsuk be, hogy ekkor kioszthatók úgy a csokoládék, hogy mindenki olyat kapjon, amit szeret.
             \hrule
-            \item Az alábbi (páros) gráfokban valaki a hullámos vonalak mentén hozott létre lehetséges párosításokat. Próbáljunk meg ezeken javítani az alternáló utas algoritmus segítségével, ha lehet. Vizsgáljuk meg, hogy mely gráfban teljesül a Hall-feltétel a fölső csúcsok osztályára, azaz a fölső csúcsok összes $X$ részhalmazára nézzük meg azoknak az $N(X)$ szomszédainak a méretét. Ha nem teljesül, keressünk olyan $X$-et, amire $N(X)$ mérete kisebb $X$ méreténél.
-            \begin{figure}[ht]
-                \centering
-                \begin{subfigure}{0.3\textwidth}
-                    \centering
-                    \includestandalone[width=0.8\textwidth]{../grafok/maxpar3}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \centering
-                    \includestandalone[width=0.8\textwidth]{../grafok/maxpar2}
-                \end{subfigure}
-                \begin{subfigure}{0.3\textwidth}
-                    \centering
-                    \includestandalone[width=0.8\textwidth]{../grafok/maxpar5}
-                \end{subfigure}
-            \end{figure}
             \item Az alábbi gráfok közül melyek topologikusan izomorfak?
 			\begin{figure}[!ht]
 				\centering
@@ -129,12 +113,30 @@
                     \includestandalone{../grafok/sik_basic4}
                 \end{subfigure}
             \end{figure}
+
+            \item Az alábbi (páros) gráfokban valaki a hullámos vonalak mentén hozott létre lehetséges párosításokat. Próbáljunk meg ezeken javítani az alternáló utas algoritmus segítségével, ha lehet. Vizsgáljuk meg, hogy mely gráfban teljesül a Hall-feltétel a fölső csúcsok osztályára, azaz a fölső csúcsok összes $X$ részhalmazára nézzük meg azoknak az $N(X)$ szomszédainak a méretét. Ha nem teljesül, keressünk olyan $X$-et, amire $N(X)$ mérete kisebb $X$ méreténél.
+            \begin{figure}[ht]
+                \centering
+                \begin{subfigure}{0.3\textwidth}
+                    \centering
+                    \includestandalone[width=0.8\textwidth]{../grafok/maxpar3}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \centering
+                    \includestandalone[width=0.8\textwidth]{../grafok/maxpar2}
+                \end{subfigure}
+                \begin{subfigure}{0.3\textwidth}
+                    \centering
+                    \includestandalone[width=0.8\textwidth]{../grafok/maxpar5}
+                \end{subfigure}
+            \end{figure}
+
             \hrule
-            \item Tfh $G$ egyszerű, $|V(G)|=2000$ és $\tau(G)=678$. Igazoljuk, hogy $G$-ben nincs teljes párosítás! 
-            \item \textbf{[PZH-2014]} Tegyük fel, hogy a $88$ pontú $G$ páros gráfban $\alpha(G) = 44$. Igazoljuk, hogy $G$-re teljesül a Hall feltétel, azaz $|X| \leq |N(X)|$ az $A$ színosztály minden $X$ részhalmaza esetén.
-            \item \textbf{[ZH-2014]} Tegyük fel, hogy a $G$ egyszerű páros gráf $A$ színosztálya $28$, a $B$ színosztálya $33$ pontú. Tegyük fel, hogy a $B$ színosztálynak valamely $Y$ részhalmazára $|Y|=18$ és $|N(Y)|=12$. Mutassuk meg, hogy az $A$ színosztályra nem teljesül a Hall feltétel, azaz létezik olyan $X \subseteq A$ halmaz, melyre $|N(X)| < |X|$.
-            \item \textbf{[ZH-2015]} Tegyük fel, hogy a $G$ egyszerű, páros gráf mindkét színosztálya egyenként $99$ pontot tartalmaz, az $A$ színosztályban minden pont foka legalább $66$, $B$-ben pedig legalább $33$. Mutassuk meg, hogy $G$-nek van teljes párosítása.
-            \item \textbf{[PZH-2015]} Tegyük fel, hogy $G=(A,B;E)$ egyszerű, páros gráf $A$ színosztályában $99$ csúcs van, ezek bármelyikének a fokszáma legalább $33$, de $A$-ban van $66$ olyan csúcs, amelyek bármelyikének foka legalább $66$. Sőt, $a$ tartalmaz $33$ olyan csúcsot is, amelyek mindegyikéből legalább $99$ él indul. Mutassuk meg, hogy $G$-nek van $A$-t fedő párosítása.
+            % \item Tfh $G$ egyszerű, $|V(G)|=2000$ és $\tau(G)=678$. Igazoljuk, hogy $G$-ben nincs teljes párosítás! 
+            % \item \textbf{[PZH-2014]} Tegyük fel, hogy a $88$ pontú $G$ páros gráfban $\alpha(G) = 44$. Igazoljuk, hogy $G$-re teljesül a Hall feltétel, azaz $|X| \leq |N(X)|$ az $A$ színosztály minden $X$ részhalmaza esetén.
+            % \item \textbf{[ZH-2014]} Tegyük fel, hogy a $G$ egyszerű páros gráf $A$ színosztálya $28$, a $B$ színosztálya $33$ pontú. Tegyük fel, hogy a $B$ színosztálynak valamely $Y$ részhalmazára $|Y|=18$ és $|N(Y)|=12$. Mutassuk meg, hogy az $A$ színosztályra nem teljesül a Hall feltétel, azaz létezik olyan $X \subseteq A$ halmaz, melyre $|N(X)| < |X|$.
+            % \item \textbf{[ZH-2015]} Tegyük fel, hogy a $G$ egyszerű, páros gráf mindkét színosztálya egyenként $99$ pontot tartalmaz, az $A$ színosztályban minden pont foka legalább $66$, $B$-ben pedig legalább $33$. Mutassuk meg, hogy $G$-nek van teljes párosítása.
+            % \item \textbf{[PZH-2015]} Tegyük fel, hogy $G=(A,B;E)$ egyszerű, páros gráf $A$ színosztályában $99$ csúcs van, ezek bármelyikének a fokszáma legalább $33$, de $A$-ban van $66$ olyan csúcs, amelyek bármelyikének foka legalább $66$. Sőt, $a$ tartalmaz $33$ olyan csúcsot is, amelyek mindegyikéből legalább $99$ él indul. Mutassuk meg, hogy $G$-nek van $A$-t fedő párosítása.
             \item \textbf{[ZH]} Síkbarajzolhatóak-e az alábbi gráfok?
             \begin{figure}[!ht]
                 \centering
