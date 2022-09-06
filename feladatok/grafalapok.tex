@@ -5,7 +5,6 @@
     \usepackage{t1enc}
     \usepackage[utf8]{inputenc}
     \usepackage[magyar]{babel}
-
     \usepackage{caption}
     \usepackage{subcaption}
     
@@ -14,23 +13,11 @@
     \usetikzlibrary{positioning, graphs}
     \usetikzlibrary{graphs.standard}
     \usetikzlibrary{arrows.meta}
+
     \usepackage{multicol}
 \begin{document}
-    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2022. I. félév}
-    \noindent\makebox[\textwidth][c]{\Large 1. gyakorlat}
-    
+    \noindent\makebox[\textwidth][c]{\Large Gráf alapok}
     \begin{enumerate}
-        \item Az alábbi gráf az olasz maffia ismerettségi körét ábrázolja. A maffiózók nevei felelnek meg a gráf csúcsainak, a köztük futó élek pedig kölcsönös ismerettséget jelentenek. Jelölje a maffiózó ismerettségét a gráfban lévő fokszáma (pl. Giorno-nak 2). Ekkor ki a legismertebb maffiózó? Jelölje a maffiózó befolyását az ismerőseinek az ismerettségének (fokszámainak) az összege (például Giorno-nak 5). Ekkor ki a legbefolyásosabb maffiózó?
-        \begin{figure}[!h]
-            \centering
-            \includestandalone[scale = 1]{../grafok/medici}
-        \end{figure}
-
-        \item Van-e olyan egyszerű gráf, aminek a fokszámai
-        \begin{enumerate}
-            \item $1,2,2,3,3,3$;
-            \item $1,1,2,2,3,4,4$?
-        \end{enumerate}
 
         \item Az alábbi gráfok közül melyek izomorfak?
         \begin{figure}[!h]
@@ -61,10 +48,24 @@
             \end{subfigure}
         \end{figure}
 
+        \item Az alábbi gráf az olasz maffia ismerettségi körét ábrázolja. A maffiózók nevei felelnek meg a gráf csúcsainak, a köztük futó élek pedig kölcsönös ismerettséget jelentenek. Jelölje a maffiózó ismerettségét a gráfban lévő fokszáma (pl. Giorno-nak 2). Ekkor ki a legismertebb maffiózó? Jelölje a maffiózó befolyását az ismerőseinek az ismerettségének (fokszámainak) az összege (például Giorno-nak 5). Ekkor ki a legbefolyásosabb maffiózó?
+        \begin{figure}[!h]
+            \centering
+            \includestandalone[scale = 1]{../grafok/medici}
+        \end{figure}
+
+
         \item \textbf{[ZH-2014]} Legyenek a $G$ egyszerű gráf csúcsai az $1,2,\ldots,10$ számok, és két különböző csúcs között akkor fusson él, ha a két szám különbsége páratlan. Hány $4$ hosszú köre van a $G$ gráfnak?
         
         \item Bizonyítsuk be, hogy bármely $13$ ember között van olyan, aki legalább $6$ másikat ismer vagy van köztük $3$ olyan, akik páronként nem ismerik egymást. (Az ismeretség kölcsönös.)
-        
+
+
+        \item Van-e olyan egyszerű gráf, aminek a fokszámai
+        \begin{enumerate}
+            \item $1,2,2,3,3,3$;
+            \item $1,1,2,2,3,4,4$?
+        \end{enumerate}
+
         \item Találjuk meg (izomorfia erejéig) mindazon egyszerű gráfokat, amelyekre
         \begin{multicols}{3}
         \begin{enumerate}
@@ -76,22 +77,39 @@
         \end{enumerate}
         \end{multicols}
 
-        \item \textbf{[ZH-1999]} Egy fának $8$ csúcsa van, fokszámai pedig kétfélék. Mi lehet ez a két szám?
 
         \hrule
 
-        \item Mutassuk meg, hogy ha egy $G$ gráfnak $11$ csúcsa és $45$ éle van, akkor $G$-nek van olyan csúcsa, ami legalább $9$-edfokú.
+        
 
+        \item Határozzuk meg az összes olyan véges, egyszerű $G$ gráfot, aminek nincs két azonos fokú csúcsa.
+        
+        \item Mutassuk meg, hogy ha $G$ véges gráf, akkor páratlan fokú pontjainak száma páros. Ha $G$ nem véges, akkor ez nem igaz.
+        
+        \item Mutassuk meg, hogy ha egy $G$ gráfnak $11$ csúcsa és $45$ éle van, akkor $G$-nek van olyan csúcsa, ami legalább $9$-edfokú.
+        
         \item \textbf{[ZH-2015]} Tegyük fel, hogy a $G$ egyszerű gráfnak $100$ csúcsa van, melyek bármelyikének a fokszáma legalább $33$, továbbá $G$-nek van olyan csúcsa, melyből legalább $66$ él indul. Bizonyítsuk be, hogy $G$ összefüggő.
         
         \item \textbf{[ZH-2016]} A $G$ gráfnak $n+3$ csúcsa van: ebből $3$ piros $(a, b, c)$ és $n$ zöld $(v_1, v_2, \ldots, v_n)$. Két csúcs pontosan akkor szomszédos $G$-ben, ha a színük különbözik. Hány $6$ pontú kör van a $G$ gráfban?
-
+        
         \item \textbf{[ZH-2012]} Tegyük fel, hogy a háromszöget nem tartalmazó, irányítatlan, $100$ csúcsú $G$ egyszerű gráf $4$-reguláris, azaz minden fokszáma $4$. Hány $3$-élű útja van $G$-nek?
         
         \item Legyenek $e,f$ és $g$ a $G$ egyszerű, összefüggő gráf különböző élei. Tegyük fel, hogy a $G$ gráf összefüggő marad, bármely élét is hagyjuk el, ám a $G-e-f$ és a $G-e-g$ gráfok egyike sem összefüggő. Igazoljuk, hogy ekkor a $G-f-g$ gráf sem összefüggő.
         
-        \item \textbf{[PZH-2014]} Igazoljuk, hogy ha egy $6$ csúcsú $G$ gráf fokszáma $2$, $2$, $2$, $4$, $5$, $5$, akkor $G$ nem egyszerű.
+        \item \textbf{[ZH-2000]} Az előre megszámozott (címkézett) $n$ darab pont közé hányféleképp húzhatunk be éleket úgy, hogy egyszerű gráfhoz jussunk?
         
-        \item \textbf{[PZH-2015]} Tegyük fel, hogy a  $K_{2015}$ teljes gráf minden egyes élét kiszíneztük $1008$ lehetséges szín valamelyikére. Bizonyítsuk be, hogy található a gráfnak egy $u$ és $v$ pontja valamint egy $c$ szín úgy, hogy ne vezessen $u$-ból $v$-be olyan út, amelynek minden éle $c$ színű.
+        \item \textbf{[ZH-2000]} Rajzoljuk le azt a gráfot, melynek pontjai a $4$ hosszú nullákból és egyesekből álló sorozatok és két csúcs akkor van éllel összekötve, ha egyik a másikból egy ,,forgatással'' megkapható, azaz ha az egyik a $(b_1,b_2,b_3,b_4)$ akkor a másik a $(b_2,b_3,b_4,b_1)$ sorozathoz tartozó pont.
+
+        \item \textbf{[PZH-2014]} Igazoljuk, hogy ha egy $6$ csúcsú $G$ gráf fokszáma $2$, $2$, $2$, $4$, $5$, $5$, akkor $G$ nem egyszerű.
+
+        \item \textbf{[PZH-2015]} Igazoljuk, hogy ha $v$ egy véges $G$ gráf páratlan fokú csúcsa, akkor $G$-ben van olyan út, amely $v$-t a $G$ egy másik páratlan fokú csúcsával köti össze.
+
+        \item Bizonyítsuk be, hogy ha $G$ egyszerű gráf, akkor élei irányíthatók úgy, hogy ne jöjjön létre irányított kör.
+        
+        \item A $V=\{1,2, \ldots, 2n \}$ (számozott) pontokon hány olyan egyszerű $G$ gráf adható meg, melynek $2n-2$ éle van és két egyforma méretű összefüggő komponensből áll?
+        
+        \item Egy $n\times n$ méretű $T$ táblázatnak nincs két egyforma sora. Bizonyítsuk be, hogy $T$-nek van olyan oszlopa, amit törölve a maradék táblázatban sem lesz két egyforma sor.
+
+        
     \end{enumerate}
 \end{document}
