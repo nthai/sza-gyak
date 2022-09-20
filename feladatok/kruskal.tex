@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt]{article}
+    
+    \usepackage[top=1.5cm, bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+    
+    \usepackage{t1enc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{arrows.meta}
+
+    \usepackage{multicol}
+\begin{document}
+    \noindent\makebox[\textwidth][c]{\Large Feszítőfák, Kruskal}
+    \begin{enumerate}
+        \item Keressünk minimális feszítőfát! Hány különböző minimális költségű feszítő fa van az alábbi gráfokban?
+        \begin{figure}[!h]
+            \centering
+            \hfill
+            \includestandalone[scale = 0.7]{../grafok/minfesz1} \hfill
+            \includestandalone[scale = 0.7]{../grafok/minfesz2} \hfill
+            \includestandalone[scale = 0.7]{../grafok/minfeszzh2005} \hfill
+        \end{figure}
+        \item \textbf{[ZH-2005]} Hány minimális feszítőfája van a lenti ábrán látható gráf irányítatlan változatának, és mennyi a súlyuk?
+        \begin{figure}[h]
+            \centering
+            \includestandalone[scale = 0.7]{../grafok/minfeszzh2005}
+        \end{figure}
+        \item \textbf{[ZH-2015]} A lenti, bal oldali ábrán látható $G = (V, E)$ gráf élei a felújítandó útszakaszokat jelentik. Minden élén két költség van: az olcsóbbik az egyszerű felújítás költsége, a drágább pedig ugyanez, kerékpárút építéssel. A cél az összes útszakasz felújítása úgy, hogy összefüggő kerékpárúthálózat épüljön ki, amelyen $G$ minden pontja elérhető. Határozzuk meg egy lehető legolcsóbb felújítási tervet, ami teljesíti ezt a feltételt.
+        
+        \begin{figure}[h]
+            \centering
+            \begin{subfigure}{0.45\textwidth}
+                \centering
+                \includestandalone{../grafok/minfesz_2015zh} \hspace{1in}
+            \end{subfigure}
+            \begin{subfigure}{0.45\textwidth}
+                \centering
+                \includestandalone{../grafok/minfesz4}
+            \end{subfigure}
+        \end{figure}
+        
+        \item A fenti, jobb oldali gráf egy galaxis bolygóinak az úthálózatának egy tervét ábrázolja. Két bolygó akkor van összekötve egy éllel, ha azok közt hiperűr sztrádát tudunk felépíteni, az élek súlya az egyes sztrádák költsége. Mely sztrádákat építsük meg, ha a legkevesebbet szeretnénk költeni, és azt akarjuk, hogy az univerzum bármely bolygójából (közvetlenül vagy közvetve) el lehessen jutni bármely másik bolygóba? Mi a helyzet akkor, ha lehetőségünk van minden bolygón kiépíteni egy csillagkaput, melynek költsége $3$? Ha egy bolygó rendelkezik csillagkapuval, akkor onnan bármely másik szintén csillagkapuval rendelkező bolygóba el tudunk jutni közvetlenül.
+    \end{enumerate}
+\end{document}

@@ -16,51 +16,9 @@
 
     \usepackage{multicol}
 \begin{document}
-    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2021. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2022. I. félév}
     \noindent\makebox[\textwidth][c]{\Large 2. gyakorlat}
     \begin{enumerate}
-
-        \item Az alábbi gráfok közül melyek izomorfak?
-        \begin{figure}[!h]
-            \centering
-            \begin{subfigure}{0.15\textwidth}
-                \centering
-                \includestandalone{../grafok/dijkstra_small_1}
-            \end{subfigure}
-            \begin{subfigure}{0.15\textwidth}
-                \centering
-                \includestandalone{../grafok/dijkstra_small_2}
-            \end{subfigure}
-            \begin{subfigure}{0.15\textwidth}
-                \centering
-                \includestandalone{../grafok/dijkstra_small_3}
-            \end{subfigure}
-            \begin{subfigure}{0.15\textwidth}
-                \centering
-                \includestandalone{../grafok/dijkstra_small_4}
-            \end{subfigure}
-            \begin{subfigure}{0.15\textwidth}
-                \centering
-                \includestandalone{../grafok/dijkstra_small_5}
-            \end{subfigure}
-            \begin{subfigure}{0.15\textwidth}
-                \centering
-                \includestandalone{../grafok/dijkstra_small_6}
-            \end{subfigure}
-        \end{figure}
-
-        \item Az alábbi gráf az olasz maffia ismerettségi körét ábrázolja. A maffiózók nevei felelnek meg a gráf csúcsainak, a köztük futó élek pedig kölcsönös ismerettséget jelentenek. Jelölje a maffiózó ismerettségét a gráfban lévő fokszáma (pl. Giorno-nak 2). Ekkor ki a legismertebb maffiózó? Jelölje a maffiózó befolyását az ismerőseinek az ismerettségének (fokszámainak) az összege (például Giorno-nak 5). Ekkor ki a legbefolyásosabb maffiózó?
-        \begin{figure}[!h]
-            \centering
-            \includestandalone[scale = 1]{../grafok/medici}
-        \end{figure}
-
-        \item \textbf{[ZH-2000]} Ketten a következő játékot játsszák. Adott $n$ pont, kezdetben semelyik kettő nincs összekötve. A játékosok felváltva lépnek, minden lépésben a soron következő játékos az $n$ pont közül két tetszőlegesen választott közé behúz egy élt. Az veszít, aki kört hoz létre. A kezdő vagy a másodiknak lépő játékos nyer, ha mindketten a lehető legjobban játszanak?
-
-        \item \textbf{[ZH-2014]} Legyenek a $G$ egyszerű gráf csúcsai az $1,2,\ldots,10$ számok, és két különböző csúcs között akkor fusson él, ha a két szám különbsége páratlan. Hány $4$ hosszú köre van a $G$ gráfnak?
-        
-        \item Bizonyítsuk be, hogy bármely $13$ ember között van olyan, aki legalább $6$ másikat ismer vagy van köztük $3$ olyan, akik páronként nem ismerik egymást. (Az ismeretség kölcsönös.)
-        
         \item Keressünk minimális feszítőfát! Hány különböző minimális költségű feszítő fa van az alábbi gráfokban?
         \begin{figure}[!h]
             \centering
@@ -70,45 +28,65 @@
             \includestandalone[scale = 0.7]{../grafok/minfeszzh2005} \hfill
         \end{figure}
 
-        % \item Válasszunk egy tetszőleges gyökérpontot az alábbi gráfokban és készítsünk feszítőfákat szélességi bejárással. Határozzuk meg az egyes pontok gyökértől való távolságát!
-        % \begin{figure}[h]
-        %     \centering
-        %     \includestandalone[scale = 0.7]{../grafok/bfs2} \hspace{1in}
-        %     \includestandalone[scale = 0.7]{../grafok/bfs3}
-        % \end{figure}
+        \item Válasszunk egy tetszőleges gyökérpontot az alábbi gráfokban és készítsünk feszítőfákat szélességi bejárással. Határozzuk meg az egyes pontok gyökértől való távolságát!
+        \begin{figure}[h]
+            \centering
+            \includestandalone[scale = 0.7]{../grafok/bfs2} \hspace{1in}
+            \includestandalone[scale = 0.7]{../grafok/bfs3}
+        \end{figure}
 
-        % \item Indítsunk el egy BFS-t (szélességi bejárást) a lenti bal oldali irányított gráf $s$ csúcsából!
-        % \begin{figure}[h]
-        %     \centering
-        %     \includestandalone[scale = 0.7]{../grafok/bfs} \hspace{1in}
-        %     \includestandalone[scale = 0.7]{../grafok/minfeszzh2005}
-        % \end{figure}
+        \item Az alábbi feszítőfákat az $a$ csúcsokból indított BFS után kaptuk meg. Hogy nézhetett ki az eredeti gráf az egyes esetekben? 
+        \begin{figure}[!h]
+            \centering
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_1}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering		
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_2}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_3}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_4}
+            \end{subfigure}
+        \end{figure}
+
+        \item \textbf{[ZH-2005]} Hány minimális feszítőfája van a lenti ábrán látható gráf irányítatlan változatának, és mennyi a súlyuk?
+        \begin{figure}[!h]
+            \centering
+            \includestandalone[scale = 0.7]{../grafok/minfeszzh2005}
+        \end{figure}
+
+        \item Indítsunk el egy BFS-t (szélességi bejárást) a lenti irányított gráf $s$ csúcsából!
+        \begin{figure}[!h]
+            \centering
+            \includestandalone[scale = 0.7]{../grafok/bfs}
+        \end{figure}
+
+        \item Indítsunk BFS-t az alábbi gráfok súlyozatlan változatának az $s$ pontjaiból! Határozzuk meg a legrövidebb utakat az alábbi súlyozott gráfokban az $s$ és a $t$ csúcs között!
+        \begin{figure}[!h]
+            \centering \hfill
+            \includestandalone[scale=0.7]{../grafok/dijkstra1}\hfill
+            \includestandalone[scale=0.7]{../grafok/dijkstra2}\hfill \hfill
+        \end{figure}
 
         \hrule
 
-        % \item \textbf{[ZH-2005]} Hány minimális feszítőfája van a fenti jobb oldali ábrán látható gráf irányítatlan változatának, és mennyi a súlyuk?
+        \item \textbf{[PZH-2014]} Az alábbi bal oldali ábrán látható valamely $G$ gráf egy szélességi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ szomszédosak $G$-ben?
+        
+        \begin{minipage}{6in}
+            \centering
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
+        \end{minipage}
+        
+        \item \textbf{[PZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított szélességi bejárása után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit.
 
-        % \item Határozzuk meg az összes olyan véges, egyszerű $G$ gráfot, aminek nincs két azonos fokú csúcsa.
-        
-        % \item Mutassuk meg, hogy ha $G$ véges gráf, akkor páratlan fokú pontjainak száma páros. Ha $G$ nem véges, akkor ez nem igaz.
-        
-        \item Mutassuk meg, hogy ha egy $G$ gráfnak $11$ csúcsa és $45$ éle van, akkor $G$-nek van olyan csúcsa, ami legalább $9$-edfokú.
-        
-        \item \textbf{[ZH-2015]} Tegyük fel, hogy a $G$ egyszerű gráfnak $100$ csúcsa van, melyek bármelyikének a fokszáma legalább $33$, továbbá $G$-nek van olyan csúcsa, melyből legalább $66$ él indul. Bizonyítsuk be, hogy $G$ összefüggő.
-        
-        \item \textbf{[ZH-2016]} A $G$ gráfnak $n+3$ csúcsa van: ebből $3$ piros $(a, b, c)$ és $n$ zöld $(v_1, v_2, \ldots, v_n)$. Két csúcs pontosan akkor szomszédos $G$-ben, ha a színük különbözik. Hány $6$ pontú kör van a $G$ gráfban?
-        
-        \item \textbf{[ZH-2012]} Tegyük fel, hogy a háromszöget nem tartalmazó, irányítatlan, $100$ csúcsú $G$ egyszerű gráf $4$-reguláris, azaz minden fokszáma $4$. Hány $3$-élű útja van $G$-nek?
-        
-        % \item Legyenek $e,f$ és $g$ a $G$ egyszerű, összefüggő gráf különböző élei. Tegyük fel, hogy a $G$ gráf összefüggő marad, bármely élét is hagyjuk el, ám a $G-e-f$ és a $G-e-g$ gráfok egyike sem összefüggő. Igazoljuk, hogy ekkor a $G-f-g$ gráf sem összefüggő.
-        
-        % \item \textbf{[ZH-2000]} Az előre megszámozott (címkézett) $n$ darab pont közé hányféleképp húzhatunk be éleket úgy, hogy egyszerű gráfhoz jussunk?
-        
-        % \item \textbf{[ZH-2000]} Rajzoljuk le azt a gráfot, melynek pontjai a $4$ hosszú nullákból és egyesekből álló sorozatok és két csúcs akkor van éllel összekötve, ha egyik a másikból egy ,,forgatással'' megkapható, azaz ha az egyik a $(b_1,b_2,b_3,b_4)$ akkor a másik a $(b_2,b_3,b_4,b_1)$ sorozathoz tartozó pont.
-
-        \item \textbf{[PZH-2014]} Igazoljuk, hogy ha egy $6$ csúcsú $G$ gráf fokszáma $2$, $2$, $2$, $4$, $5$, $5$, akkor $G$ nem egyszerű.
-
-        
         \item \textbf{[ZH-2015]} A lenti, bal oldali ábrán látható $G = (V, E)$ gráf élei a felújítandó útszakaszokat jelentik. Minden élén két költség van: az olcsóbbik az egyszerű felújítás költsége, a drágább pedig ugyanez, kerékpárút építéssel. A cél az összes útszakasz felújítása úgy, hogy összefüggő kerékpárúthálózat épüljön ki, amelyen $G$ minden pontja elérhető. Határozzuk meg egy lehető legolcsóbb felújítási tervet, ami teljesíti ezt a feltételt.
         
         \begin{figure}[h]
@@ -124,29 +102,9 @@
         \end{figure}
         
         \item A fenti, jobb oldali gráf egy galaxis bolygóinak az úthálózatának egy tervét ábrázolja. Két bolygó akkor van összekötve egy éllel, ha azok közt hiperűr sztrádát tudunk felépíteni, az élek súlya az egyes sztrádák költsége. Mely sztrádákat építsük meg, ha a legkevesebbet szeretnénk költeni, és azt akarjuk, hogy az univerzum bármely bolygójából (közvetlenül vagy közvetve) el lehessen jutni bármely másik bolygóba? Mi a helyzet akkor, ha lehetőségünk van minden bolygón kiépíteni egy csillagkaput, melynek költsége $3$? Ha egy bolygó rendelkezik csillagkapuval, akkor onnan bármely másik szintén csillagkapuval rendelkező bolygóba el tudunk jutni közvetlenül.
-
-        \item \textbf{[PZH-2015]} Igazoljuk, hogy ha $v$ egy véges $G$ gráf páratlan fokú csúcsa, akkor $G$-ben van olyan út, amely $v$-t a $G$ egy másik páratlan fokú csúcsával köti össze.
-
-        % \item Bizonyítsuk be, hogy ha $G$ egyszerű gráf, akkor élei irányíthatók úgy, hogy ne jöjjön létre irányított kör.
-
-        % \item A $G$ egyszerű gráfnak $e$ olyan éle, aminek elhagyásával fát kapunk. Mutassuk meg, hogy $G$-nek még legalább két másik éle is rendelkezik ezzel a tulajdonsággal.
-
-        \item \textbf{[ZH-1999]} Egy fának $8$ csúcsa van, fokszámai pedig kétfélék. Mi lehet ez a két szám?
         
-        % \item Az alábbi gráf egy galaxis bolygóinak az úthálózatának egy tervét ábrázolja. Két bolygó akkor van összekötve egy éllel, ha azok közt hiperűr sztrádát tudunk felépíteni, az élek súlya az egyes sztrádák költsége. Mely sztrádákat építsük meg, ha a legkevesebbet szeretnénk költeni, és azt akarjuk, hogy az univerzum bármely bolygójából (közvetlenül vagy közvetve) el lehessen jutni bármely másik bolygóba? Mi a helyzet akkor, ha lehetőségünk van minden bolygón kiépíteni egy csillagkaput, melynek költsége $3$? Ha egy bolygó rendelkezik csillagkapuval, akkor onnan bármely másik szintén csillagkapuval rendelkező bolygóba el tudunk jutni közvetlenül.
-        % \begin{figure}[!h]
-		% 	\centering
-		% 	\includestandalone{../grafok/minfesz4}
-        % \end{figure}
         
+
         \item A $V=\{1,2, \ldots, 2n \}$ (számozott) pontokon hány olyan egyszerű $G$ gráf adható meg, melynek $2n-2$ éle van és két egyforma méretű összefüggő komponensből áll?
-        
-        % \item Egy $n\times n$ méretű $T$ táblázatnak nincs két egyforma sora. Bizonyítsuk be, hogy $T$-nek van olyan oszlopa, amit törölve a maradék táblázatban sem lesz két egyforma sor.
-
-        % \item A kormány tendert ír ki $n$ településnek a helyi vízműre történő rácsatlakoztatására. Minden ajánlat két település (vagy egy település és a vízmű) között kiépítendő vezeték költségét tartalmazza. Tudjuk, hogy a kormány úgy választja ki a megépítendő vezetékeket és az azokat építő egyes vállalkozásokat, hogy a lehető legolcsóbban csatlakozzon az $n$ település a vízműhöz. Cégünk különféle homályos üzletek nyélbeütésével igen olcsón meg tudná építeni a Rátótot és Piripócsot összekötő vezetéket, ráadásul minisztériumi kapcsolatunk, Mutyi bácsi elárulta nekünk az összes beérkezett ajánlatot. Hogyan árazzuk a saját Rátót-Piripócs ajánlatunkat, hogy a lehető legnagyobbat szakítsuk?
-
-        \item \textbf{[PZH-2015]} Tegyük fel, hogy a  $K_{2015}$ teljes gráf minden egyes élét kiszíneztük $1008$ lehetséges szín valamelyikére. Bizonyítsuk be, hogy található a gráfnak egy $u$ és $v$ pontja valamint egy $c$ szín úgy, hogy ne vezessen $u$-ból $v$-be olyan út, amelynek minden éle $c$ színű.
-
-        % \item A VIKes botanika klubnak sikerült kitenyésztenie az alkoholfát, melynek magját a húszemeletes Schönherz Kollégium földszintjén ültették el. A klubtagok megfigyelték, hogy ha tablettás borral öntözik a fát, akkor másnapra a fa egy emeletnyit nő, ha pedig kannás borral, akkor a kétszeresére. Hogyan érdemes öntözniük a fát, ha azt szeretnék, hogy minél gyorsabban elérje a plafont a huszadik emeleten (de azon ne lógjon túl), hogy minden emelet lakója könnyen hozzáférhessen a fa gyümölcséhez? Hogyan érdemes eljárni ha tetszőleges $n$ emelet magas fát szeretnénk?
     \end{enumerate}
 \end{document}

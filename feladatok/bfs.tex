@@ -1,0 +1,72 @@
+\documentclass[a4paper,12pt]{article}
+    
+    \usepackage[top=1.5cm, bottom=1.5cm,left=1.5cm,right=1.5cm]{geometry}
+    
+    \usepackage{t1enc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[magyar]{babel}
+    \usepackage{caption}
+    \usepackage{subcaption}
+    
+    \usepackage{standalone}
+    \usepackage{tikz}
+    \usetikzlibrary{positioning, graphs}
+    \usetikzlibrary{graphs.standard}
+    \usetikzlibrary{arrows.meta}
+
+    \usepackage{multicol}
+
+    \begin{document}
+        \noindent\makebox[\textwidth][c]{\Large Szélességi bejárás (BFS)}
+        \begin{enumerate}
+            \item Válasszunk egy tetszőleges gyökérpontot az alábbi gráfokban és készítsünk feszítőfákat szélességi bejárással. Határozzuk meg az egyes pontok gyökértől való távolságát!
+            \begin{figure}[h]
+                \centering
+                \includestandalone[scale = 0.7]{../grafok/bfs2} \hspace{1in}
+                \includestandalone[scale = 0.7]{../grafok/bfs3}
+            \end{figure}
+
+            \item Indítsunk el egy BFS-t (szélességi bejárást) a lenti irányított gráf $s$ csúcsából!
+            \begin{figure}[h]
+                \centering
+                \includestandalone[scale = 0.7]{../grafok/bfs}
+            \end{figure}
+            \item Indítsunk BFS-t az alábbi gráfok súlyozatlan változatának az $s$ pontjaiból! Határozzuk meg a legrövidebb utakat az alábbi súlyozott gráfokban az $s$ és a $t$ csúcs között!
+        \begin{figure}[!h]
+            \centering \hfill
+            \includestandalone[scale=0.7]{../grafok/dijkstra1}\hfill
+            \includestandalone[scale=0.7]{../grafok/dijkstra2}\hfill \hfill
+        \end{figure}
+        \item Az alábbi feszítőfákat az $a$ csúcsokból indított BFS után kaptuk meg. Hogy nézhetett ki az eredeti gráf az egyes esetekben? 
+        \begin{figure}[!h]
+            \centering
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_1}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering		
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_2}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_3}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_4}
+            \end{subfigure}
+        \end{figure}
+        \item \textbf{[PZH-2014]} Az alábbi bal oldali ábrán látható valamely $G$ gráf egy szélességi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ szomszédosak $G$-ben?
+        
+        \begin{minipage}{6in}
+            \centering
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
+        \end{minipage}
+        
+        \item \textbf{[PZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított szélességi bejárása után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit.
+        \end{enumerate}
+        
+        % \item A VIKes botanika klubnak sikerült kitenyésztenie az alkoholfát, melynek magját a húszemeletes Schönherz Kollégium földszintjén ültették el. A klubtagok megfigyelték, hogy ha tablettás borral öntözik a fát, akkor másnapra a fa egy emeletnyit nő, ha pedig kannás borral, akkor a kétszeresére. Hogyan érdemes öntözniük a fát, ha azt szeretnék, hogy minél gyorsabban elérje a plafont a huszadik emeleten (de azon ne lógjon túl), hogy minden emelet lakója könnyen hozzáférhessen a fa gyümölcséhez? Hogyan érdemes eljárni ha tetszőleges $n$ emelet magas fát szeretnénk?
+    \end{document}
