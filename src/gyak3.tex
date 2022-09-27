@@ -20,50 +20,31 @@
 \usepackage{amsmath}
 
 \begin{document}
-    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2021. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2022. I. félév}
     \noindent\makebox[\textwidth][c]{\Large 3. gyakorlat}
     \begin{enumerate}
-        \item Indítsunk BFS-t az alábbi gráfok súlyozatlan változatának az $s$ pontjaiból! Határozzuk meg a legrövidebb utakat az alábbi súlyozott gráfokban az $s$ és a $t$ csúcs között!
+
+        \item Határozzuk meg a legrövidebb utakat az alábbi gráfokban az $s$ és a $t$ csúcs között a Dijkstra-algoritmussal!
         \begin{figure}[!h]
             \centering \hfill
             \includestandalone[scale=0.7]{../grafok/dijkstra1}\hfill
             \includestandalone[scale=0.7]{../grafok/dijkstra2}\hfill \hfill
         \end{figure}
-        \item Az alábbi feszítőfákat az $a$ csúcsokból indított BFS után kaptuk meg. Hogy nézhetett ki az eredeti gráf az egyes esetekben? 
-        \begin{figure}[!h]
+
+        \item Határozzuk meg az alábbi bal oldali gráfban a legrövidebb utakat az $s$ és a többi csúcs között a Bellman-Ford algoritmussal!
+        \begin{figure}[h]
             \centering
-            \begin{subfigure}{0.2\textwidth}
+            \begin{subfigure}{0.4\textwidth}
                 \centering
-                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_1}
+                \includestandalone[scale=0.95]{../grafok/bellmanford1}
             \end{subfigure}
-            \begin{subfigure}{0.2\textwidth}
-                \centering		
-                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_2}
-            \end{subfigure}
-            \begin{subfigure}{0.2\textwidth}
+            \begin{subfigure}{0.4\textwidth}
                 \centering
-                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_3}
-            \end{subfigure}
-            \begin{subfigure}{0.2\textwidth}
-                \centering
-                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_4}
+                \includestandalone{../grafok/floyd1}
             \end{subfigure}
         \end{figure}
-
-        % \item Határozzuk meg az alábbi bal oldali gráfban a legrövidebb utakat az $s$ és a többi csúcs között a Bellman-Ford algoritmussal!
-        % \begin{figure}[h]
-        %     \centering
-        %     \begin{subfigure}{0.4\textwidth}
-        %         \centering
-        %         \includestandalone{../grafok/bellmanford1}
-        %     \end{subfigure}
-        %     \begin{subfigure}{0.4\textwidth}
-        %         \centering
-        %         \includestandalone{../grafok/floyd1}
-        %     \end{subfigure}
-        % \end{figure}
         
-        % \item Határozzuk meg a fenti jobb oldali gráfban az egyes csúcsok közti legrövidebb utakat a Floyd algoritmus segítségével!
+        \item Határozzuk meg a fenti jobb oldali gráfban az egyes csúcsok közti legrövidebb utakat a Floyd algoritmus segítségével!
         
         
         \item Az alábbi ábrákon gráfok részletei láthatóak, amin épp a Dijkstra algoritmust hajtjuk végre. Az $a$, $b$ és $c$ csúcsokat már bevettük a megvizsgált csúcsok halmazába, a csúcsok mellett zárójelben vannak feltüntetve, hogy a kezdőponttól milyen távol vannak. Melyik csúcsot fogja bevenni következőnek a Dijkstra algoritmus és milyen távolsággal?
@@ -116,28 +97,28 @@
             \end{subfigure}
         \end{figure}
 
-        \item Hogyan lehet a BFS algoritmust felhasználni adott $r$ gyökér esetén az összes $dist_l(r, v)$ távolság meghatározására, ha minden $l(e)$ élhossz egész szám?
+        % \item Hogyan lehet a BFS algoritmust felhasználni adott $r$ gyökér esetén az összes $dist_l(r, v)$ távolság meghatározására, ha minden $l(e)$ élhossz egész szám?
         
-        Tervezzünk csavaranyákból és cukorspárgából gravitációs elven működő mechanikus számítógépet, ami alkalmas az inputként megadott, nemnegatív élhosszokkal rendelkező irányítatlan gráf tetszőleges gyökérpontjából a többi csúcs távolságának a meghatározására.
+        % Tervezzünk csavaranyákból és cukorspárgából gravitációs elven működő mechanikus számítógépet, ami alkalmas az inputként megadott, nemnegatív élhosszokkal rendelkező irányítatlan gráf tetszőleges gyökérpontjából a többi csúcs távolságának a meghatározására.
 
         \hrule
 
-        \item \textbf{[PZH-2014]} Az alábbi bal oldali ábrán látható valamely $G$ gráf egy szélességi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ szomszédosak $G$-ben?
+        % \item \textbf{[PZH-2014]} Az alábbi bal oldali ábrán látható valamely $G$ gráf egy szélességi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ szomszédosak $G$-ben?
         
-        \begin{minipage}{6in}
-            \centering
-            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
-            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
-        \end{minipage}
+        % \begin{minipage}{6in}
+        %     \centering
+        %     \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
+        %     \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
+        % \end{minipage}
         
-        \item \textbf{[PZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított szélességi bejárása után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit.
+        % \item \textbf{[PZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított szélességi bejárása után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit.
 
 
         \item \textbf{[PZH-2010]} Adott egy $G$ gráf, az $e$ él hosszát jelölje $l(e)$. Minden él hosszát növeljük meg $2$-vel, azaz legyen $l'(e)=l(e)+2$ minden élre. Tegyük fel, hogy $u$ és $v$ között $P$ egy legrövidebb út az $l'$ élhosszokkal. Igaz-e, hogy $P$ biztosan egy legrövidebb út $u$ és $v$ között az $l$ élhosszokra nézve is?
         
-        % \item \textbf{[ZH-2014 alapján]} Legyenek a $7$ csúcsú $G$ gráf pontjai $v_1$, $v_2$, $v_3$, $v_4$, $v_6$, $v_8$ és $v_9$, valamint akkor legyen $v_i$ és $v_j$ szomszédos, ha $i$ és $j$ relatív prímek. Ekkor a $v_iv_j$ él hosszúsága $|i-j|$. Határozzuk meg a $v_1$ csúcsból minden más csúcsba egy-egy legrövidebb utat.
+        \item \textbf{[ZH-2014 alapján]} Legyenek a $7$ csúcsú $G$ gráf pontjai $v_1$, $v_2$, $v_3$, $v_4$, $v_6$, $v_8$ és $v_9$, valamint akkor legyen $v_i$ és $v_j$ szomszédos, ha $i$ és $j$ relatív prímek. Ekkor a $v_iv_j$ él hosszúsága $|i-j|$. Határozzuk meg a $v_1$ csúcsból minden más csúcsba egy-egy legrövidebb utat.
         
-        % \item \textbf{[PZH-2014]} Legyen $V(G) = \{v_3, v_4, \ldots, v_{10}\}$, és $v_iv_j \in E(G)$, ha $i$ és $j$ nem relatív prímek, azaz van $1$-nél nagyobb közös osztójuk. Legyen a $v_iv_j$ él hossza $\min(i,j) - 1$. Határozzuk meg a $v_5$ csúcsból minden más csúcsba egy-egy legrövidebb utat, ha van. 
+        \item \textbf{[PZH-2014]} Legyen $V(G) = \{v_3, v_4, \ldots, v_{10}\}$, és $v_iv_j \in E(G)$, ha $i$ és $j$ nem relatív prímek, azaz van $1$-nél nagyobb közös osztójuk. Legyen a $v_iv_j$ él hossza $\min(i,j) - 1$. Határozzuk meg a $v_5$ csúcsból minden más csúcsba egy-egy legrövidebb utat, ha van. 
         
         \item \textbf{[ZH-2008]} Határozzuk meg a lenti bal oldali gráfban az élsúlyokat úgy, hogy a Dijkstra algoritmus rossz eredményt adjon!
         \begin{figure}[h]
@@ -150,34 +131,34 @@
 
         \item \label{feladat:zh2011} \textbf{[ZH-2011]} Legyen a $G=(V, E)$ gráf csúcshalmaza $V = \{27,28,\ldots,33\}$, él pedig akkor fusson két csúcs között, ha indexeik relatív prímek: $E = \{ij:(i,j) = 1\}$. Rajzoljuk le $G$ diagramját, indítsunk a $27$ csúcsból szélességi bejárást, valamint határozzuk meg a bejáráshoz tartozó fát és a többi csúcsnak a $27$ csúcstól való távolságát.
 
-        \item KITÖRT AZ AFRIKAI SERTÉSPESTIS! Az alábbi ábrán a város csomópontjai és azok föld alatti összeköttetései találhatóak. A többszáz malac az $a$ pontbeli karanténból kiszabadulva minden lehetséges irányba elkezdett rohanni. A malacoknak egy napba telik, hogy egy összeköttetésen keresztül át tudjanak menni az egyik csomópontból a másikba. Új csomópontba érkezve a malacok megfertőzik az ottani sertésállomány egyedeit, amelyek szintén megvadulnak és kiszabadulva csatlakoznak az ámokfutáshoz.
+        % \item KITÖRT AZ AFRIKAI SERTÉSPESTIS! Az alábbi ábrán a város csomópontjai és azok föld alatti összeköttetései találhatóak. A többszáz malac az $a$ pontbeli karanténból kiszabadulva minden lehetséges irányba elkezdett rohanni. A malacoknak egy napba telik, hogy egy összeköttetésen keresztül át tudjanak menni az egyik csomópontból a másikba. Új csomópontba érkezve a malacok megfertőzik az ottani sertésállomány egyedeit, amelyek szintén megvadulnak és kiszabadulva csatlakoznak az ámokfutáshoz.
         
-        \begin{minipage}{0.6\textwidth}
-            \begin{enumerate}
-                \item Hány nap múlva fertőződik meg a város összes sertése?
-                \item Mely csomópont(ok) fertőződik(fertőződnek) meg utoljára?
-                \item A második nap végén megérkezik Rick Sanchez (C-$137$) és pillanatok alatt összeállítja a sertéspestis ellenszerét (amely többek között tartalmaz kaktusz, golden retriever, cápa és dinoszaurusz DNS-t is). Az ellenszer egy vírusfelhőként szin-tén a föld alatti utakon terjed, de kétszer olyan gyorsan. A hatóanyag egyből gyógyít és immunissá tesz, viszont hátulütője, hogy cronenbergekké változtatja a fertőzött malacokat. Lesz-e olyan csomópont, ahol nem változnak cronenberggé a malacok?
-            \end{enumerate}
-        \end{minipage}
-        \begin{minipage}{0.3\textwidth}
-            \centering
-            \includestandalone[width=\textwidth]{../grafok/undirected_weightless_1}
-        \end{minipage}
-
-        % \item Úgy tűnik a Galaktikus Föderáció kezd kilábalni a gazdasági csődjéből (miután sikerült visszaállítani a centralizált galaktikus pénznem, a blemflarck értékét $0$-ról $1$-re). Rick Sanchez azonban ezt nem hagyhatja annyiban, az intergalaktikus terrorista ismét monetáris csapást készül mérni. A föderációs adatbázisokat meghekkelve Rick átállította a galaxis pénzeinek árfolyamát az alábbi táblázat alapján, mely azt írja le, hogy egy adott pénz egységéért mennyit kap egy másikból (pl. itt $16$ flurboért $1$ brapple-t lehet kapni). Rick terve az, hogy ügyes átváltásokkal végtelen sok pénzt fog tudni termelni magának. Sikerülni fog-e ez neki emellett a módosított árfolyam mellett.
-
-        % \begin{table}[h]
+        % \begin{minipage}{0.6\textwidth}
+        %     \begin{enumerate}
+        %         \item Hány nap múlva fertőződik meg a város összes sertése?
+        %         \item Mely csomópont(ok) fertőződik(fertőződnek) meg utoljára?
+        %         \item A második nap végén megérkezik Rick Sanchez (C-$137$) és pillanatok alatt összeállítja a sertéspestis ellenszerét (amely többek között tartalmaz kaktusz, golden retriever, cápa és dinoszaurusz DNS-t is). Az ellenszer egy vírusfelhőként szin-tén a föld alatti utakon terjed, de kétszer olyan gyorsan. A hatóanyag egyből gyógyít és immunissá tesz, viszont hátulütője, hogy cronenbergekké változtatja a fertőzött malacokat. Lesz-e olyan csomópont, ahol nem változnak cronenberggé a malacok?
+        %     \end{enumerate}
+        % \end{minipage}
+        % \begin{minipage}{0.3\textwidth}
         %     \centering
-        %     \begin{tabular}{|c|c|c|c|c|c|}
-        %         \hline
-        %             & Blemflarck & Brapple & Flurbo & Schmeckle & Smidgen \\ \hline
-        %         Blemflarck & $1:1$ & $8:1$ & $1:2$ & $4:1$ & $128:1$ \\ \hline
-        %         Brapple & $1:4$ & $1:1$ & $16:1$ & $1:2$ & $8:1$ \\ \hline
-        %         Flurbo & $4:1$ & $16:1$ & $1:1$ & $4:1$ & $64:1$ \\ \hline
-        %         Schmeckle & $4:1$ & $8:1$ & $1:4$ & $1:1$ & $8:1$ \\ \hline
-        %         Smidgen & $1:4$ & $1:8$ & $4:1$ & $4:1$ & $1:1$ \\ \hline
+        %     \includestandalone[width=\textwidth]{../grafok/undirected_weightless_1}
+        % \end{minipage}
 
-        %     \end{tabular}
-        % \end{table}
+        \item Úgy tűnik a Galaktikus Föderáció kezd kilábalni a gazdasági csődjéből (miután sikerült visszaállítani a centralizált galaktikus pénznem, a blemflarck értékét $0$-ról $1$-re). Rick Sanchez azonban ezt nem hagyhatja annyiban, az intergalaktikus terrorista ismét monetáris csapást készül mérni. A föderációs adatbázisokat meghekkelve Rick átállította a galaxis pénzeinek árfolyamát az alábbi táblázat alapján, mely azt írja le, hogy egy adott pénz egységéért mennyit kap egy másikból (pl. itt $16$ flurboért $1$ brapple-t lehet kapni). Rick terve az, hogy ügyes átváltásokkal végtelen sok pénzt fog tudni termelni magának. Sikerülni fog-e ez neki emellett a módosított árfolyam mellett.
+
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                    & Blemflarck & Brapple & Flurbo & Schmeckle & Smidgen \\ \hline
+                Blemflarck & $1:1$ & $8:1$ & $1:2$ & $4:1$ & $128:1$ \\ \hline
+                Brapple & $1:4$ & $1:1$ & $16:1$ & $1:2$ & $8:1$ \\ \hline
+                Flurbo & $4:1$ & $16:1$ & $1:1$ & $4:1$ & $64:1$ \\ \hline
+                Schmeckle & $4:1$ & $8:1$ & $1:4$ & $1:1$ & $8:1$ \\ \hline
+                Smidgen & $1:4$ & $1:8$ & $4:1$ & $4:1$ & $1:1$ \\ \hline
+
+            \end{tabular}
+        \end{table}
     \end{enumerate}
 \end{document}
