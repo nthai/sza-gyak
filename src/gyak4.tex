@@ -16,64 +16,89 @@
 
     \usepackage{multicol}
 \begin{document}
-    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2020. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2022. I. félév}
     \noindent\makebox[\textwidth][c]{\Large 4. gyakorlat}
     \begin{enumerate}
-        \item Keressünk minimális feszítőfát! Hány különböző minimális költségű feszítő fa van az alábbi gráfokban?
+
+
+        \begin{minipage}{0.65\textwidth}
+            \item Adjuk meg az alábbi jobb oldali gráfnak az $a$ pontból indított szélességi fáját, és erre vonatkozóan az előre-, vissza-, és keresztéleket!
+            \item Adjuk meg az alábbi jobb oldali gráfnak az $a$ pontból indított mélységi fáját, és erre vonatkozóan az előre-, vissza-, és keresztéleket!
+        \end{minipage}
+        \begin{minipage}{0.25\textwidth}
+            \centering
+            \includestandalone[width=\textwidth]{../grafok/dfs1}    
+        \end{minipage}
+
+        \item Határozzuk meg az alábbi, bal oldali PERT problémában a legrövidebb végrehajtási időt és a kritikus tevékenységeket. Mik az egyes tevékenységekre a legutolsó időpontok, amikor azokat elkezdve a projekt még épp időben végrehajtható?
         \begin{figure}[!h]
             \centering
-            \includestandalone[scale = 0.7]{../grafok/minfesz1} \hspace{1in}
-            \includestandalone[scale = 0.7]{../grafok/minfesz2}
+            \includestandalone[scale=0.8]{../grafok/pert2} \hspace{2cm}
+            \includestandalone[scale=0.8]{../grafok/pert3}
         \end{figure}
 
-        \begin{minipage}{0.3\textwidth}
+        \hrule
+
+        \item Mekkora lehet a fenti jobb oldali PERT diagramban a $p$ legnagyobb értéke, úgy hogy a projekt végrehajtási időtartama minimális legyen?
+        
+        \item Az alábbi feszítőfákat az $a$ csúcsokból indított DFS után kaptuk meg. Hogy nézhetett ki az eredeti gráf az egyes esetekben? 
+        \begin{figure}[!h]
             \centering
-            \includestandalone[width=\textwidth]{../grafok/undirected_weighted_1}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.6\textwidth}
-            \item Keressünk a bal oldali gráfban minimális költségű feszítőfát. Mekkora a minimális költség? Hány különböző minimális költségű feszítőfája van a gráfnak? Keressünk maximális költségű feszítőfát. Melyek azok az élek, amelyek szerepelnek mind a minimális, mind a maximális költségű feszítőfában?
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_1}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_2}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_3}
+            \end{subfigure}
+            \begin{subfigure}{0.2\textwidth}
+                \centering
+                \includestandalone[width=0.65\textwidth]{../grafok/bfs_after_4}
+            \end{subfigure}
+        \end{figure}
+        
+
+        \item \textbf{[ZH-2014]} A lenti bal oldali ábrán látható a $G$ gráf egy mélységi fája. Honnan indulhatott a bejárás, ha tudjuk, hogy $b$ és $c$ ill. $a$ és $e$ szomszédosak $G$ben?
+
+        \begin{minipage}{6in}
+            \centering
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2014pzh}} \hspace{1in}
+            \raisebox{-0.5\height}{\includestandalone{../grafok/bfs_2010pzh}}
         \end{minipage}
 
+        \item \textbf{[ZH-2015]} A fenti jobb oldali ábrán látható az egyszerű, irányítatlan $G$ gráf $i$ gyökeréből indított mélységi bejárás után kapott $F$ feszítőfa. Tudjuk, hogy az $e$ csúcs $G$-beli fokszáma $7$. Határozzuk meg a $G$ gráf $e$-ből induló éleit!
+        
         \begin{minipage}{0.6\textwidth}
-            \item \textbf{[ZH-2019]} Legyen $G$ az ábrán látható gráf, és jelentsék az egyes éleire írt számok az adott él költségét. Határozzuk meg $G$ egy olyan $F$ feszítőfájának összköltségét, ami tartalmazza a $bf$ élt, és az ilyen feszítőfák körében $F$ éleinek összköltsége a lehető legkisebb.
+            \item \textbf{[PZH-2019]} Határozzuk meg az ábrán látható PERT feladathoz tartozó minimális végrehajtási időt. Kritikus-e az $a$ csúcsnak megfelelő tevékenység?
         \end{minipage}
         \begin{minipage}{0.3\textwidth}
             \centering
             \includestandalone[width=\textwidth]{../grafok/kruskal_2019zh}
         \end{minipage}
-        \hrule
+
+        \item \label{feladat:zh2011} \textbf{[ZH-2011]} Legyen a $G=(V, E)$ gráf csúcshalmaza $V = \{27,28,\ldots,33\}$, él pedig akkor fusson két csúcs között, ha indexeik relatív prímek: $E = \{ij:(i,j) = 1\}$. Rajzoljuk le $G$ diagramját, indítsunk a $27$ csúcsból mélységi bejárást. Rajzoljuk meg az így kapott fa diagramját, határozzuk meg az egyes csúcsok befejezési számát. (Több lehetséges megoldás esetén csak az egyiket kell megadni.)
         
-        \item \textbf{[ZH-2016]} A $G$ gráfnak $n+3$ csúcsa van: ebből $3$ piros $(a, b, c)$ és $n$ zöld $(v_1, v_2, \ldots, v_n)$. Két csúcs pontosan akkor szomszédos $G$-ben, ha a színük különbözik. Hány $6$ pontú kör van a $G$ gráfban?
-        
-        \item \textbf{[ZH-2012]} Tegyük fel, hogy a háromszöget nem tartalmazó, irányítatlan, $100$ csúcsú $G$ egyszerű gráf $4$-reguláris, azaz minden fokszáma $4$. Hány $3$-élű útja van $G$-nek?
-        
-        \item \textbf{[ZH-2015]} A lenti, bal oldali ábrán látható $G = (V, E)$ gráf élei a felújítandó útszakaszokat jelentik. Minden élén két költség van: az olcsóbbik az egyszerű felújítás költsége, a drágább pedig ugyanez, kerékpárút építéssel. A cél az összes útszakasz felújítása úgy, hogy összefüggő kerékpárúthálózat épüljön ki, amelyen $G$ minden pontja elérhető. Határozzuk meg egy lehető legolcsóbb felújítási tervet, ami teljesíti ezt a feltételt.
-        
-        \begin{figure}[h]
+        \begin{minipage}{0.3\textwidth}
             \centering
-            \begin{subfigure}{0.45\textwidth}
-                \centering
-                \includestandalone{../grafok/minfesz_2015zh} \hspace{1in}
-            \end{subfigure}
-            \begin{subfigure}{0.45\textwidth}
-                \centering
-                \includestandalone{../grafok/csillagkapu}
-            \end{subfigure}
-        \end{figure}
+            \includestandalone[width=\textwidth]{../grafok/dijkstra_2021zh}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.6\textwidth}    
+            \item Van-e az ábrán látható $G$ gráfnak olyan feszítőfája, ami az $f$ csúcsból minden más csúcsba tartalmazza a $G$ egy legrövidebb útját? Ha igen, adjunk meg egy ilyen feszítőfát.
+            \item Határozzuk meg az ábrán látható $G$ gráfban a $dist(v, a)$ távolságot $G$ minden $v\neq a$ csúcsára. Leheséges-e úgy irányítani a $G$ gráf éleit, hogy minden $v\neq a$ csúcs esetén legyen olyan irányított út $v$-ből $a$-ba, aminek az irányítatlan változata $G$ egy legrövidebb $va$-útja?
+        \end{minipage}
         
-        \item A fenti, jobb oldali gráf egy galaxis bolygóinak az úthálózatának egy tervét ábrázolja. Két bolygó akkor van összekötve egy éllel, ha azok közt hiperűr sztrádát tudunk felépíteni, az élek súlya az egyes sztrádák költsége. Mely sztrádákat építsük meg, ha a legkevesebbet szeretnénk költeni, és azt akarjuk, hogy az univerzum bármely bolygójából (közvetlenül vagy közvetve) el lehessen jutni bármely másik bolygóba? Mi a helyzet akkor, ha lehetőségünk van minden bolygón kiépíteni egy csillagkaput, melynek költsége $2.5$? Ha egy bolygó rendelkezik csillagkapuval, akkor onnan bármely másik szintén csillagkapuval rendelkező bolygóba el tudunk jutni közvetlenül.
-
-        \item \textbf{[PZH-2015]} Igazoljuk, hogy ha $v$ egy véges $G$ gráf páratlan fokú csúcsa, akkor $G$-ben van olyan út, amely $v$-t a $G$ egy másik páratlan fokú csúcsával köti össze.
-        
-        \item A $V=\{1,2, \ldots, 2n \}$ (számozott) pontokon hány olyan egyszerű $G$ gráf adható meg, melynek $2n-2$ éle van és két egyforma méretű összefüggő komponensből áll?
-
-        \item \textbf{[PZH-2015]} Tegyük fel, hogy a  $K_{2015}$ teljes gráf minden egyes élét kiszíneztük $1008$ lehetséges szín valamelyikére. Bizonyítsuk be, hogy található a gráfnak egy $u$ és $v$ pontja valamint egy $c$ szín úgy, hogy ne vezessen $u$-ból $v$-be olyan út, amelynek minden éle $c$ színű.
-
-        \item \textbf{[ZH-2018]} Legyen $G$ a lenti ábrán látható gráf, ahol az élekre írt számok az adott él megépítésének költségét jelentik. Találjuk meg $G$ egy minimális költségű feszítőfáját. Legfeljebb mennyire növelhető a $be$ él megépítési költsége úgy, hogy $G$-nek legyen egy legfeljebb $42$ összköltségű feszítőfája?
-        \begin{figure}[ht]
+        \begin{minipage}{0.63\textwidth}
+            \item A Wallace részvénytársaság nagy beruházásra készül. Forradalmasítani akarja az új replikáns széria gyártósorait. A projekt tevékenységeit, és a tevékenységek közti időt az alábbi, bal oldali gráf szemlélteti. Az újítással az üzem középső szakaszán bármely két tevékenység közti időt le tudja csökkenteni $2$-vel (az ábrán a duplán húzott élek), viszont minden egyes csökkentés pénzbe kerül. Mely élek mentén és mennyivel érdemes csökkenteni az időt, ha a lehető legtöbbet szeretnénk gyorsítani a gyártáson, ugyanakkor fölöslegesen nem szeretnénk pénzt kidobni.
+        \end{minipage}\hfill
+        \begin{minipage}{0.3\textwidth}
             \centering
-            \includestandalone[width=0.3\textwidth]{../grafok/bfs_2018zh_1}
-        \end{figure}
+            \includestandalone[width=\textwidth]{../grafok/pert5}
+        \end{minipage}
     \end{enumerate}
 \end{document}
