@@ -22,5 +22,13 @@
             "env": {}
         }
     ],
-    "latex-workshop.latex.outDir": "%DIR%/../output"
+    "latex-workshop.latex.outDir": "%DIR%/../output",
+    "spellright.language": [
+        "hu"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ]
 }

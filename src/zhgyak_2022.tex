@@ -1,0 +1,120 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[top=1cm, bottom=1cm, left=1cm, right=1cm]{geometry}
+\usepackage{amsmath, amssymb}
+
+\usepackage{standalone}
+\usepackage{tikz}
+\usepackage{alphalph}
+
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{graphs.standard}
+
+\usepackage[utf8]{inputenc}
+\usepackage[magyar]{babel}
+
+\usepackage{caption, subcaption}
+
+\begin{document}
+    \noindent\makebox[\textwidth][c]{\Large A számítástudomány alapjai 2022. I. félév}
+    \noindent\makebox[\textwidth][c]{\Large 8. gyakorlat}
+
+    \begin{enumerate}
+        \item \textbf{[ZH-2021]} Tegyük fel, hogy a $15$-csúcsú, egyszerű $G$ gráf élei úgy vannak piros, fehér és zöld színre színezve, hogy a piros élek egy feszítőfát, a fehér élek pedig egy Hamilton-kört alkotnak. Mennyi a zöld élek száma, ha a $\bar{G}$ komplementernek épp $34$ éle van?
+        \item \textbf{[PZH-2021]} Tegyük fel, hogy a $K_{12}$ teljes gráf minden élét úgy színeztük ki a piros, fehér vagy zöld színek valamelyikére, hogy minden csúcsra pontosan $5$ piros él illeszkedik, és a fehér élek a $K_{12}$ egy feszítőfáját alkotják. A zöld élek pedig úgy vannak irányítva, hogy minden $v$-től különböző csúcsból pontosan két zöld él vezet ki. Hány zöld él lép ki a $v$ csúcsból?
+
+        \begin{minipage}{0.6\textwidth}
+            \item \textbf{[ZH-2021]} Van-e olyan $b$-ből indított DFS bejárása az ábrán látható $G$ gráfnak, ami után az $eb$, $ed$, és $ef$ élek mindegyike faél lesz?
+            \item \textbf{[ZH-2021]} Van-e az ábrán látható $G$ gráfnak olyan feszítőfája, ami az $f$ csúcsból minden más csúcsba tartalmazza a $G$ egy legrövidebb útját? Ha igen, adjunk meg egy ilyen feszítőfát. (Az élekre írt számok most az élek hosszait jelentik.)
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+                \centering
+                \includestandalone{../grafok/kruskal_2021zh}
+        \end{minipage}
+        \item \textbf{[ZH-2021]} A fenti ábrán látható $G$ gráf kilenc várost és az azokat összekötő utakat mutatja. Úgy szeretnénk újraaszfaltozni néhány útszakaszt, hogy bármely városból bármely másik városba el lehessen jutni újraaszfaltozott útvonalon, de ehhez a lehető legkevesebb aszfaltra legyen szükség. Hogyan végezzük el ezen feltétel mellett a felújítást, ha azt is el szeretnénk érni, hogy az $a$ városból a $c$-be vezető felújított útvonal a lehető legrövidebb legyen? (Az élekre írt számok az adott útszakasz hosszát jelentik, az aszfaltozáshoz szükséges mennyiség pedig a hosszal arányos.)
+        \item \textbf{[PZH-2021]} Van-e a fenti $G$ gráfnak olyan, $f$ gyökérből indított szélességi bejárása, amely során $ag$ faél? (Az élekre írt számoktól tekintsünk el.)
+        \item \textbf{[PZH-2021]} Legfeljebb mennyivel tud növekedni a fenti ábrán látható gráf minimális költségű feszítőfájának költsége akkor, ha a gráf egy tetszőlegesen választott élének költségét tetszőlegesen megváltoztathatjuk? (Az élekre írt számok az adott él költségét jelentik.)
+        
+        \item Síkbarajzolhatóak-e az alábbi ábrán látható gráfok?
+        \begin{figure}[!ht]
+            \centering
+            \begin{subfigure}{0.24\textwidth}
+                \centering
+                \includestandalone[scale=0.5]{../grafok/zh2019_sik}
+                \caption{\textbf{[ZH-2019]}}
+            \end{subfigure}
+            \begin{subfigure}{0.24\textwidth}
+                \centering
+                \includestandalone[scale=0.5]{../grafok/pzh2019_sik}
+                \caption{\textbf{[PZH-2019]}}
+            \end{subfigure}
+            \begin{subfigure}{0.24\textwidth}
+                \centering
+                \includestandalone[scale=0.5]{../grafok/sik_2021zh}
+                \caption{\textbf{[ZH-2021]}}
+            \end{subfigure}
+            \begin{subfigure}{0.24\textwidth}
+                \centering
+                \includestandalone[scale=0.5]{../grafok/sik_2021pzh}
+                \caption{\textbf{[PZH-2021]}}
+            \end{subfigure}
+        \end{figure}
+
+        \item \textbf{[ZH-2020]} A $G$ irányítatlan gráfnak nyolc csúcsa van: $a$, $b$, $c$, $d$, $e$, $f$, $g$, $h$. Ezek fokszámai rendre $6$, $4$, $4$, $2$, $2$, $2$, $1$, $1$. A $G$ éleinek egy alkalmas irányításával a létrejövő irányított gráfban a fenti csúcsokból rendre $D$, $3$, $1$, $1$, $2$, $1$, $0$, $0$ él lép ki. Határozzuk meg $D$ értékét!
+        \item \textbf{[ZH-2020]} Hány csúcsa van az $F$ fának, ha $F$-nek pontosan két nyolcadfokú és tizenhárom negyedfokú csúcsa van, és $f$ minden más csúcsa levél?
+        
+        \begin{minipage}{0.5\textwidth}
+            \item \textbf{[ZH-2020]} Indítsunk a jobb oldali ábrán látható $g$ gráf $d$ csúcsából szélességi bejárást és határozzuk meg a hozzá tartozó szélességi fát. Végrehajtható-e a fent említett BFS úgy, hogy a $bc$ faél legyen?
+        \end{minipage}\hfill
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \includestandalone[scale=0.75]{../grafok/zh2020}
+        \end{minipage}
+
+        \begin{minipage}{0.6\textwidth}
+            \item A mellékelt táblázat Dijkstra algoritmus lefutását mutatja a $G$ irányítatlan gráfon. Az egyes sorok az adott fázis utáni $(r, l)$-felső becsléseket adják meg. 
+            \begin{enumerate}
+                \item \textbf{[ZH-2020]} Határozzuk meg, milyen sorrendben kerültek be az egyes csúcsok a KÉSZ halmazba, azaz adjuk meg, $g$ csúcsainak az algoritmus által meghatározott $u_1, u_1, \ldots, u_n$ sorrendjét!
+                \item \textbf{[PZH-2020]} Határozzuk meg a $ca$ él $l(ca)$ hosszát!
+            \end{enumerate}
+            
+        \end{minipage}
+        \begin{minipage}{0.3\textwidth}
+            \centering
+            \begin{tabular}{ccccc}
+                $a$ & $b$ & $c$ & $d$ & $e$ \\ \hline
+                $\infty$ & $\infty$ & $\infty$ & $0$ & $\infty$  \\
+                $42$ & $24$ & $7$ & $0$ & $\infty$  \\
+                $33$ & $16$ & $7$ & $0$ & $77$  \\
+                $24$ & $16$ & $7$ & $0$ & $18$  \\
+                $22$ & $16$ & $7$ & $0$ & $18$  \\
+            \end{tabular}
+        \end{minipage}
+        \item \textbf{[ZH-2020]} Legyen $G=(V,E)$ véges, irányítatlan gráf. Tegyük fel, hogy a $k:E\rightarrow\mathbb{R}_{+}$ költség-függvényre ugyanúgy $14$ a minimális költségű feszítőfa költsége, mint a $k'$ költségfüggvényre, ahol $k'(e)=2k(e)-1$ a $G$ minden $e$ élére. Mennyi a minimális költségű feszítőfa költsége a $k''=2k(e)+1$ képlettel megadott $k''$ költségfüggvényre?
+        \item \textbf{[PZH-2020]} Hány levele van a $100$-csúcsú $F$ fának, ha $F$ $40$ db harmadfokú csúcsán kívül minden más csúcsának legfeljebb $2$ a fokszáma?
+        
+        \item \textbf{[PZH-2020]} Indítsunk a lenti bal oldali ábrán látható $G$ gráf $a$ csúcsából mélységi bejárást és határozzuk meg a hozzá tartozó elérési sorrendet és mélységi fát. Legkevesebb hány élt kell törölni a $G$-ből ahhoz, hogy a vastaggal jelölt élek a törlés után kapott gráf $c$ gyökerű DFS fáját alkothassák?
+        
+        \begin{figure}[!ht]
+            \centering
+            \hfill
+            \includestandalone[scale=.75]{../grafok/pzh2020_dfs}\hfill
+            \includestandalone[scale=.75]{../grafok/pzh2020_pert}\hfill
+            \hfill
+        \end{figure}
+
+        \item \textbf{[PZH-2020]} Kritikus-e az $e$ tevékenység fenti jobb oldali ábrán látható PERT problémában?
+        
+        \item \textbf{[ZH-2019]} A lenti bal oldali ábrán látható $G$ gráf élei mellett az adott él hossza szerepel. Válasszuk ki $G$ néhány élét úgy, hogy a kiválasztott éleken $G$ bármely csúcsából $G$ bármely csúcsába el lehessen jutni, és a kiválasztott élek összhossza a lehető legkevesebb legyen.
+        \item \textbf{[ZH-2019]} A lenti bal oldali ábrán látható $G$ gráf élei mellett az adott él hossza szerepel. Igaz-e, hogy az $i$ csúcs legalább $7$-tel távolabb van $g$-től, mint a $d$ csúcs, azaz, hogy $dist(g, i) \geq dist(g, d) + 7$?
+        \begin{figure}[!ht]
+            \centering
+            \hfill
+            \includestandalone[scale=.75]{../grafok/zh2019_dfs}\hfill
+            \includestandalone[scale=.75]{../grafok/zh2019_weighted}\hfill
+            \hfill
+        \end{figure}
+        \item \textbf{[ZH-2019]} A fenti jobb oldali ábrán látható $G$ gráf egy mélységi fája. Tudjuk, hogy $gh$ és $hi$ a $G$ élei. Lehetnek-e $G$-ben a $d$ és $e$ csúcsok szomszédosak?
+    \end{enumerate}
+\end{document}

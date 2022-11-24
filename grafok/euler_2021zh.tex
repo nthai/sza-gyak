@@ -1,0 +1,38 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{alphalph}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+		[vertex/.style={draw,circle,inner sep = 0em, minimum size = 1.2em},
+		 edgelabel/.style = {fill = white, inner sep = 0.2em, font=\small}]
+		\node[vertex] (a) at (0, 0) {a};
+		\node[vertex] (b) at (2, 0) {b};
+		\node[vertex] (c) at (4, 0) {c};
+		\node[vertex] (d) at (0,-2) {d};
+		\node[vertex] (e) at (2,-2) {e};
+		\node[vertex] (f) at (4,-2) {f};
+		\node[vertex] (g) at (0,-4) {g};
+		\node[vertex] (h) at (2,-4) {h};
+		\node[vertex] (i) at (4,-4) {i};
+		
+		\draw[-] (a) -- (b);
+		\draw[-] (a) -- (d);
+		\draw[-, out=225, in=135] (a) to (g);
+		\draw[-] (b) -- (c);
+		\draw[-] (b) -- (e);
+		\draw[-] (c) -- (e);
+		\draw[-] (c) -- (f);
+		\draw[-] (d) -- (e);
+		\draw[-] (d) -- (g);
+		\draw[-] (e) -- (f);
+		\draw[-] (e) -- (i);
+		\draw[-] (e) -- (h);
+		\draw[-] (f) -- (i);
+		\draw[-] (g) -- (h);
+		
+\end{scope}
+\end{tikzpicture}
+\end{document}

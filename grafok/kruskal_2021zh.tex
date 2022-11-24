@@ -1,0 +1,38 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usepackage{alphalph}
+\usetikzlibrary{positioning, graphs}
+\usetikzlibrary{graphs.standard}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+		[vertex/.style={draw,circle,inner sep = 0em, minimum size = 1.2em},
+		 edgelabel/.style = {fill = white, inner sep = 0.2em, font=\small}]
+		\node[vertex] (a) at (0, 0) {a};
+		\node[vertex] (b) at (2, 0) {b};
+		\node[vertex] (c) at (4, 0) {c};
+		\node[vertex] (d) at (0,-2) {d};
+		\node[vertex] (e) at (2,-2) {e};
+		\node[vertex] (f) at (4,-2) {f};
+		\node[vertex] (g) at (0,-4) {g};
+		\node[vertex] (h) at (2,-4) {h};
+		\node[vertex] (i) at (4,-4) {i};
+		
+		\draw[-] (a) -- node[edgelabel] {$6$} (b);
+		\draw[-] (a) -- node[edgelabel] {$1$} (d);
+		\draw[-, out=225, in=135] (a) to node[edgelabel] {$2$} (g);
+		\draw[-] (b) -- node[edgelabel] {$1$} (c);
+		\draw[-] (b) -- node[edgelabel] {$4$} (e);
+		\draw[-] (c) -- node[edgelabel] {$2$} (e);
+		\draw[-] (c) -- node[edgelabel] {$2$} (f);
+		\draw[-] (d) -- node[edgelabel] {$5$} (e);
+		\draw[-] (d) -- node[edgelabel] {$2$} (g);
+		\draw[-] (e) -- node[edgelabel] {$4$} (f);
+		\draw[-] (e) -- node[edgelabel] {$1$} (i);
+		\draw[-] (e) -- node[edgelabel] {$3$} (h);
+		\draw[-] (f) -- node[edgelabel] {$2$} (i);
+		\draw[-] (g) -- node[edgelabel] {$4$} (h);
+		
+\end{scope}
+\end{tikzpicture}
+\end{document}
